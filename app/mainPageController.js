@@ -2,13 +2,59 @@
     'use strict';
     angular
         .module('app')
-        .controller('mainPageController', ['$scope', mainPageController]);
+        .controller('mainPageController', ['$scope', '$q', 'mainPageService', mainPageController]);
 
-    function mainPageController($scope) {
+    function mainPageController($scope, $q, mainPageService) {
         var vm = this;
-        vm.menuList = [{title: 'Calendar', href: 'calendar', iconClass: 'fa-table'},
-            {title: 'Map', href: 'map', iconClass: 'fa-map'},
-            {title: 'About', href: 'about', iconClass: 'fa-user'},
-            {title: 'Turkey', href: 'turkey', iconClass: 'fa-moon-o'}];
+
+        vm.angActive = false;
+        vm.jQueryActive = false;
+        vm.itemLoaded = false;
+
+        vm.taskList = [];
+        vm.typeList = [];
+
+        vm.viewAngular = viewAngular;
+        vm.viewJQuery = viewJQuery;
+        vm.parseData = parseData;
+
+        function viewAngular() {
+            vm.angActive = true;
+            vm.jQueryActive = false;
+
+            if (!vm.itemLoaded) {
+                loadToDoList();
+            }
+        }
+
+        function viewJQuery() {
+            vm.angActive = false;
+            vm.jQueryActive = true;
+        }
+
+        function loadToDoList() {
+            var promise = $q.all({
+                taskList: mainPageService.getTaskList(),
+                typeList: mainPageService.getTypeList()
+            });
+
+            promise.then(successLoaded, errorLoaded);
+        }
+
+        function successLoaded(data) {
+            vm.itemLoaded = true;
+
+            vm.taskList = data.taskList.data || [];
+            vm.typeList = data.typeList.data || [];
+        }
+
+        function errorLoaded(data) {
+            vm.itemLoaded = false;
+            alert(data);
+        }
+
+        function parseData(time) {
+            return moment(time).format('lll');
+        }
     }
 })();

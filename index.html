@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>test site</title>
+    <title>todo list example</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/mainPageController.js"></script>
+    <script src="app/mainPageService.js"></script>
+    <script src="libs/moment.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -19,29 +21,65 @@
     <base href="/">
 </head>
 <body ng-controller="mainPageController as mainCtrl">
-<div id="header">
-    <div class="container">
+<div class="container">
+    <div class="header clearfix">
         <nav>
-            <div class="navbar-header">
-                <a class="" href="/#"><i class="fa fa-fw fa-user-secret"></i> Obnemashge</a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#menu" aria-expanded="false">
-                    <i class="fa fa-fw fa-bars"></i>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="nav navbar-nav navbar-right">
-                    <li ng-repeat="li in mainCtrl.menuList"><a href="{{li.href}}">
-                        <i class="fa fa-fw {{li.iconClass}}"></i> {{li.title}}
-                    </a>
-
-                    </li>
-                    <!--<li ng-repeat="parent in mainMenuUl | orderBy: 'Order'" ng-class="active">-->
-                    <!--<li class="active"><a href="#">Calendar</a></li>-->
-                    <!--<li><a href="#">Statistic</a></li>-->
-                </ul>
-            </div>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active">
+                    <a href="https://github.com/DimaVanin/dimavanin.github.io" target="_blank">View gitHub</a>
+                </li>
+            </ul>
         </nav>
+        <h3 class="text-muted">toDo list</h3>
+    </div>
+    <div class="jumbotron">
+        <h1>It's test task</h1>
+
+        <p>Я использовал Angular & jQuery
+        </p>
+
+        <div>
+            <button class="btn btn-default"
+                    ng-class="{'btn-success':mainCtrl.angActive}"
+                    ng-click="mainCtrl.viewAngular()">
+                View Angular result
+            </button>
+            <button class="btn btn-default"
+                    ng-class="{'btn-success':mainCtrl.jQueryActive}"
+                    ng-click="mainCtrl.viewJQuery()">
+                View jQuery result
+            </button>
+        </div>
+    </div>
+    <div ng-show="mainCtrl.angActive">
+        <div ng-show="!mainCtrl.itemLoaded"><h2><i class="fa fa-spinner fa-pulse"></i> Loading...</h2></div>
+        <div ng-show="mainCtrl.itemLoaded">
+            <div class="jumbotron"
+                 ng-repeat="type in mainCtrl.typeList | orderBy:'id'">
+                <a ng-click="showDetails=!showDetails">
+                    {{type.name}}
+                </a>
+
+                <div ng-show="showDetails"
+                     ng-repeat="task in mainCtrl.taskList | filter:{ type: type.id }">
+                    <div>
+                        <input type="checkbox"
+                               ng-model="task.done"
+                               ng-checked="task.done"
+                               ng-disabled="task.done">
+                        {{task.task}}
+                        <br>
+                        expires_at: {{mainCtrl.parseData(task.expires_at)}}
+                        <br>
+                        created_at: {{mainCtrl.parseData(task.created_at)}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron" ng-show="mainCtrl.jQueryActive">
+
     </div>
 </div>
 </body>
