@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>test site</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/mainPageController.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="content/site.css">
+
+    <base href="/">
+</head>
+<body ng-controller="mainPageController as mainCtrl">
+<div id="header">
+    <div class="container">
+        <nav>
+            <div class="navbar-header">
+                <a class="" href="/#"><i class="fa fa-fw fa-user-secret"></i> Obnemashge</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#menu" aria-expanded="false">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-repeat="li in mainCtrl.menuList"><a href="{{li.href}}">
+                        <i class="fa fa-fw {{li.iconClass}}"></i> {{li.title}}
+                    </a>
+
+                    </li>
+                    <!--<li ng-repeat="parent in mainMenuUl | orderBy: 'Order'" ng-class="active">-->
+                    <!--<li class="active"><a href="#">Calendar</a></li>-->
+                    <!--<li><a href="#">Statistic</a></li>-->
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+</body>
+</html>
+
