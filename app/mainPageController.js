@@ -17,6 +17,7 @@
         vm.viewAngular = viewAngular;
         vm.viewJQuery = viewJQuery;
         vm.parseData = parseData;
+        vm.defineType = defineType;
 
         function viewAngular() {
             vm.angActive = true;
@@ -55,6 +56,16 @@
 
         function parseData(time) {
             return moment(time).format('lll');
+        }
+
+        function defineType(id) {
+            var result = "";
+            vm.typeList.forEach(function(type){
+                if (id == type.id) {
+                    result = type.name || '';
+                }
+            });
+            return result;
         }
     }
 })();

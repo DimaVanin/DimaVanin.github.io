@@ -12,6 +12,7 @@
     <script src="app/mainPageController.js"></script>
     <script src="app/mainPageService.js"></script>
     <script src="libs/moment.min.js"></script>
+    <script src="example.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -45,42 +46,68 @@
                 View Angular result
             </button>
             <button class="btn btn-default"
+                    id="viewBtn"
                     ng-class="{'btn-success':mainCtrl.jQueryActive}"
                     ng-click="mainCtrl.viewJQuery()">
                 View jQuery result
             </button>
         </div>
     </div>
-    <div ng-show="mainCtrl.angActive">
-        <div ng-show="!mainCtrl.itemLoaded"><h2><i class="fa fa-spinner fa-pulse"></i> Loading...</h2></div>
+    <div ng-if="mainCtrl.angActive">
+        <div ng-show="!mainCtrl.itemLoaded">
+            <h2><i class="fa fa-spinner fa-pulse"></i> Loading...</h2>
+        </div>
         <div ng-show="mainCtrl.itemLoaded">
-            <div class="jumbotron"
-                 ng-repeat="type in mainCtrl.typeList | orderBy:'id'">
-                <a ng-click="showDetails=!showDetails">
-                    {{type.name}}
-                </a>
-
-                <div ng-show="showDetails"
-                     ng-repeat="task in mainCtrl.taskList | filter:{ type: type.id }">
-                    <div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Task</th>
+                    <th>Created at</th>
+                    <th>Expires at</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="task in mainCtrl.taskList | orderBy:'id'"
+                    ng-class="{'success': task.done}">
+                    <td>
                         <input type="checkbox"
                                ng-model="task.done"
                                ng-checked="task.done"
                                ng-disabled="task.done">
-                        {{task.task}}
-                        <br>
-                        expires_at: {{mainCtrl.parseData(task.expires_at)}}
-                        <br>
-                        created_at: {{mainCtrl.parseData(task.created_at)}}
-                    </div>
-                </div>
-            </div>
+                    </td>
+                    <td>{{task.task}}</td>
+                    <td>{{mainCtrl.parseData(task.created_at)}}</td>
+                    <td>{{mainCtrl.parseData(task.expires_at)}}</td>
+                    <td>{{mainCtrl.defineType(task.type)}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <div class="jumbotron" ng-show="mainCtrl.jQueryActive">
-
+    <div ng-show="mainCtrl.jQueryActive">
+        <div id="spinner">
+            <h2><i class="fa fa-spinner fa-pulse"></i> Loading...</h2>
+        </div>
+        <div id="mainContainer">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Task</th>
+                    <th>Created at</th>
+                    <th>Expires at</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
     </div>
+
 </div>
 </body>
 </html>
