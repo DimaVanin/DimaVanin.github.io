@@ -54,8 +54,9 @@
         </div>
     </div>
     <div ng-if="mainCtrl.angActive">
-        <div ng-show="!mainCtrl.itemLoaded">
-            <h2><i class="fa fa-spinner fa-pulse"></i> Loading...</h2>
+        <div ng-show="!mainCtrl.itemLoaded"
+             class="spinner">
+            <h2>Loading...</h2>
         </div>
         <div ng-show="mainCtrl.itemLoaded">
             <table class="table table-hover">
@@ -88,8 +89,8 @@
     </div>
 
     <div ng-show="mainCtrl.jQueryActive">
-        <div id="spinner">
-            <h2><i class="fa fa-spinner fa-pulse"></i> Loading...</h2>
+        <div id="spinner" class="spinner">
+            <h2>Loading...</h2>
         </div>
         <div id="mainContainer">
             <table class="table table-hover">

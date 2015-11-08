@@ -43,7 +43,8 @@ body {
 }
 
 .spinner {
-
+    text-align: center;
+    padding: 40px;
 }
 
 .type-wrap {
