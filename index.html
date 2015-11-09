@@ -33,32 +33,75 @@
         </nav>
         <h3 class="text-muted">toDo list</h3>
     </div>
-    <div class="jumbotron">
-        <h1>It's test task</h1>
 
-        <p>Я использовал Angular & jQuery
-        </p>
+    <div class="jumbotron">
+        <h2>It's test task</h2>
+
+        <h3>I used Angular and jQuery</h3>
 
         <div>
-            <button class="btn btn-default"
-                    ng-class="{'btn-success':mainCtrl.angActive}"
+            <button class="btn"
+                    ng-class="{'btn-success':mainCtrl.angActive,'btn-default':!mainCtrl.angActive}"
                     ng-click="mainCtrl.viewAngular()">
-                View Angular result
+                <i class="fa fa-shield"></i> View Angular result
             </button>
-            <button class="btn btn-default"
+            <button class="btn"
                     id="viewBtn"
-                    ng-class="{'btn-success':mainCtrl.jQueryActive}"
+                    ng-class="{'btn-success':mainCtrl.jQueryActive,'btn-default':!mainCtrl.jQueryActive}"
                     ng-click="mainCtrl.viewJQuery()">
-                View jQuery result
+                <i class="fa fa-rss"></i> View jQuery result
             </button>
         </div>
     </div>
+
     <div ng-if="mainCtrl.angActive">
         <div ng-show="!mainCtrl.itemLoaded"
              class="spinner">
             <h2>Loading...</h2>
         </div>
         <div ng-show="mainCtrl.itemLoaded">
+            <div ng-show="!mainCtrl.showAddNew"
+                 class="jumbotron">
+                <button type="button"
+                        class="btn btn-success"
+                        ng-click="mainCtrl.showAddNew=!mainCtrl.showAddNew">
+                    <i class="fa fa-plus"></i> Add new task
+                </button>
+            </div>
+
+            <div ng-show="mainCtrl.showAddNew"
+                 class="jumbotron">
+                <form class="form-inline"
+                      ng-submit="mainCtrl.addNewTask()">
+                    <input type="text"
+                           class="form-control"
+                           ng-model="mainCtrl.newTask.task"
+                           placeholder="Task...">
+
+                    <input type="text"
+                           class="form-control"
+                           ng-model="mainCtrl.newTask.expires_at"
+                           placeholder="Expires at... (in ms)">
+                    <select class="form-control"
+                            ng-model="mainCtrl.newTask.type"
+                            ng-options="type.id as type.name for type in mainCtrl.typeList">
+                    </select>
+                    <br>
+
+                    <button type="submit"
+                            class="btn btn-success"
+                            ng-click="mainCtrl.showAddNew=!mainCtrl.showAddNew">
+                        <i class="fa fa-thumbs-o-up"></i>
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-danger"
+                            ng-click="mainCtrl.showAddNew=!mainCtrl.showAddNew">
+                        <i class="fa fa-thumbs-o-down"> </i>
+                    </button>
+                </form>
+            </div>
+
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -70,7 +113,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="task in mainCtrl.taskList | orderBy:'id'"
+                <tr ng-repeat="task in mainCtrl.taskList | orderBy:'-expires_at'"
                     ng-class="{'success': task.done}">
                     <td>
                         <input type="checkbox"
@@ -93,6 +136,42 @@
             <h2>Loading...</h2>
         </div>
         <div id="mainContainer">
+            <div id="addNewBtn"
+                 class="jumbotron">
+                <button type="button"
+                        class="btn btn-success">
+                    <i class="fa fa-plus"></i> Add new task
+                </button>
+            </div>
+
+            <div id="addNewForm"
+                 class="jumbotron">
+                <form class="form-inline">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Task...">
+
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Expires at... (in ms)">
+                    <select class="form-control"
+                            id="typeSelect">
+                    </select>
+                    <br>
+
+                    <button type="button"
+                            class="btn btn-success">
+                        <i class="fa fa-thumbs-o-up"></i>
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-danger">
+                        <i class="fa fa-thumbs-o-down"></i>
+                    </button>
+                </form>
+            </div>
+
+
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -108,8 +187,6 @@
             </table>
         </div>
     </div>
-
 </div>
 </body>
 </html>
-

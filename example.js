@@ -3,7 +3,8 @@
     var itemLoaded = false,
         typesList = [],
         taskList = [],
-        viewBtn, spinner, mainContainer, tbody;
+        viewBtn, spinner, mainContainer, tbody,
+        addNewBtn, addNewForm, submitBtn, cancelBtn;
 
     $(document).ready(init);
 
@@ -12,10 +13,23 @@
         mainContainer = $('#mainContainer');
         spinner = $('#spinner');
         tbody = $('tbody');
+        addNewBtn = $('#addNewBtn');
+        addNewForm = $('#addNewForm');
+        submitBtn = addNewForm.find('button:first');
+        cancelBtn = addNewForm.find('button:last');
+
+
+        addNewBtn.click(showHideForm);
+        cancelBtn.click(showHideForm);
+        submitBtn.click(addNewTask);
         viewBtn.click(getItems);
+
+        //addNewForm.hide();
     }
 
     function getItems() {
+        addNewForm.hide();
+        addNewBtn.show();
         if (itemLoaded) {
             return;
         }
@@ -36,24 +50,34 @@
     function successLoaded(results) {
         taskList = results[0] || [];
         typesList = results[1] || [];
-        taskList.sort(taskSort);
         buildToDoList();
+        defineOptions(addNewForm.find('select'));
         mainContainer.show();
         spinner.hide();
     }
 
     function buildToDoList() {
+        tbody.empty();
+        taskList.sort(taskSort);
         taskList.forEach(buildRow);
 
-        tbody.find('input:not(:checked)').change(function(e){
-            $(this).prop('disabled', true);
-            $(this).parent().parent().addClass('success');
-        })
+        tbody.find('input:not(:checked)').change(function (e) {
+            var id = $(this).attr('id');
+            taskList.forEach(function (task) {
+                if (task.id == id) {
+                    task.done = true;
+                }
+            });
+            buildToDoList();
+        });
     }
 
-    function buildRow(task) {
+    function buildRow(task, i) {
+        task.id = 'task' + i;
         var rowClass = task.done ? ' class="success"' : '',
-            input = task.done ? '<input type="checkbox" checked disabled>' : '<input type="checkbox">',
+            input = task.done ?
+            '<input type="checkbox" id="' + task.id + '" checked disabled>' :
+            '<input id="' + task.id + '"type="checkbox">',
             row = '<tr' + rowClass + '><td>' + input
                 + '</td><td>' + task.task
                 + '</td><td>' + moment(task.created_at).format('lll')
@@ -72,7 +96,38 @@
         return result;
     }
 
+    function defineOptions(select) {
+        typesList.forEach(function (type) {
+            var option = '<option id="type' + type.id + '">' + type.name + '</option>';
+            select.append(option);
+        });
+    }
+
+    function addNewTask() {
+        var task = addNewForm.find('input:first').val(),
+            expiresAt = addNewForm.find('input:last').val(),
+            type = addNewForm.find('option:selected').attr('id').replace('type',''),
+            newTask = {
+                task: task,
+                expires_at: +expiresAt,
+                type: type,
+                created_at: Date.parse(moment())
+            };
+
+        taskList.push(newTask);
+
+        addNewForm.find('input').val('');
+
+        showHideForm();
+        buildToDoList();
+    }
+
+    function showHideForm() {
+        addNewForm.toggle();
+        addNewBtn.toggle();
+    }
+
     function taskSort(a, b) {
-        return a.expires_at - b.expires_at;
+        return b.expires_at - a.expires_at;
     }
 })();

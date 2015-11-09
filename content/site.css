@@ -12,7 +12,7 @@ body {
 
 .header {
     padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border-bottom: 1px solid #e5e5e5;
 }
 
@@ -32,14 +32,15 @@ body {
 }
 
 .jumbotron {
+    padding: 15px;
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
 }
 
 .jumbotron .btn {
-    margin: 2px 0;
-    padding: 14px 24px;
-    font-size: 21px;
+    margin: 5px;
+    /*padding: 14px 24px;*/
+    /*font-size: 21px;*/
 }
 
 .spinner {
@@ -97,19 +98,13 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-    .header,
-    .marketing,
-    .footer {
+    .header {
         padding-right: 0;
         padding-left: 0;
     }
 
     .header {
-        margin-bottom: 30px;
-    }
-
-    .jumbotron {
-        border-bottom: 10px;
+        margin-bottom: 10px;
     }
 }
 

@@ -10,18 +10,21 @@
         vm.angActive = false;
         vm.jQueryActive = false;
         vm.itemLoaded = false;
-
+        vm.showAddNew = false;
         vm.taskList = [];
         vm.typeList = [];
+        vm.newTask = {};
 
         vm.viewAngular = viewAngular;
         vm.viewJQuery = viewJQuery;
         vm.parseData = parseData;
         vm.defineType = defineType;
+        vm.addNewTask = addNewTask;
 
         function viewAngular() {
             vm.angActive = true;
             vm.jQueryActive = false;
+            vm.showAddNew = false;
 
             if (!vm.itemLoaded) {
                 loadToDoList();
@@ -47,6 +50,7 @@
 
             vm.taskList = data.taskList.data || [];
             vm.typeList = data.typeList.data || [];
+            vm.newTask.type = vm.typeList[0].id;
         }
 
         function errorLoaded(data) {
@@ -60,12 +64,23 @@
 
         function defineType(id) {
             var result = "";
-            vm.typeList.forEach(function(type){
+            vm.typeList.forEach(function (type) {
                 if (id == type.id) {
                     result = type.name || '';
                 }
             });
             return result;
+        }
+
+        function addNewTask() {
+            vm.newTask.expires_at = +vm.newTask.expires_at;
+            vm.newTask.created_at = Date.parse(moment());
+            vm.taskList.push(vm.newTask);
+            vm.newTask = {
+                task: '',
+                created_at: '',
+                expires_at: ''
+            }
         }
     }
 })();
