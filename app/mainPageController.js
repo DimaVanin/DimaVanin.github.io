@@ -74,6 +74,7 @@
 
         function addNewTask() {
             vm.newTask.expires_at = +vm.newTask.expires_at;
+            vm.newTask.expires_at = Date.parse(moment().add(vm.newTask.expires_at,'hours'));
             vm.newTask.created_at = Date.parse(moment());
             vm.taskList.push(vm.newTask);
             vm.newTask = {

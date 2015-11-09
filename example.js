@@ -109,7 +109,7 @@
             type = addNewForm.find('option:selected').attr('id').replace('type',''),
             newTask = {
                 task: task,
-                expires_at: +expiresAt,
+                expires_at:  Date.parse(moment().add(expiresAt,'hours')),
                 type: type,
                 created_at: Date.parse(moment())
             };

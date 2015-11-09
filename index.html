@@ -79,10 +79,10 @@
                            ng-model="mainCtrl.newTask.task"
                            placeholder="Task...">
 
-                    <input type="text"
+                    <input type="number"
                            class="form-control"
                            ng-model="mainCtrl.newTask.expires_at"
-                           placeholder="Expires at... (in ms)">
+                           placeholder="Hours to complete...">
                     <select class="form-control"
                             ng-model="mainCtrl.newTask.type"
                             ng-options="type.id as type.name for type in mainCtrl.typeList">
@@ -152,9 +152,9 @@
                            class="form-control"
                            placeholder="Task...">
 
-                    <input type="text"
+                    <input type="number"
                            class="form-control"
-                           placeholder="Expires at... (in ms)">
+                           placeholder="Hours to complete...">
                     <select class="form-control"
                             id="typeSelect">
                     </select>
