@@ -19,7 +19,7 @@
         cancelBtn = addNewForm.find('button:last');
 
 
-        addNewBtn.click(showHideForm);
+        addNewBtn.find('button').click(showHideForm);
         cancelBtn.click(showHideForm);
         submitBtn.click(addNewTask);
         viewBtn.click(getItems);
