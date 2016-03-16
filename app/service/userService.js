@@ -14,7 +14,7 @@
 		function getUserInfo() {
 			var deferred = $q.defer();
 
-			if (userService().user.id) {
+			if (this.user.id) {
 				deferred.resolve();
 			} else {
 				$q.all({
