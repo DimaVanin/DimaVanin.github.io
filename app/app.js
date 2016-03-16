@@ -2,13 +2,6 @@
 	'use strict';
 	angular.module('app', ['ui.router']);
 
-	angular.module('app').run(['$state', function ($state) {
-		debugger;
-
-		$state.transitionTo('loginFB');
-		$state.go('loginFB');
-	}]);
-
 	angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
 		$urlRouterProvider.otherwise("/loginFB");
@@ -31,4 +24,14 @@
 				templateUrl: "app/templates/userScoreTpl.html"
 			});
 	});
+
+	angular.module('app').run(['$state', function ($state) {
+		FB.getLoginStatus(function(response){
+			debugger;
+		});
+
+
+		$state.transitionTo('loginFB');
+		$state.go('loginFB');
+	}]);
 })();
