@@ -1,17 +1,14 @@
 <section class="main_section user_info">
 	<div class="row">
-		<div class="col-md-3">
-			{{mainCtrl.user.id}}
-		</div>
-		<div class="col-md-3">
-			{{mainCtrl.user.name}}
-		</div>
-		<div class="col-md-3">
+		<div class="col-md-12">
 			<img src="{{mainCtrl.user.photoUrl}}">
 		</div>
-		<div class="col-md-3">
-			Ok
-		</div>
+
+		<div class="col-md-4 title">User Id:</div>
+		<div class="col-md-8">{{mainCtrl.user.id}}</div>
+
+		<div class="col-md-4 title">User Name:</div>
+		<div class="col-md-8">{{mainCtrl.user.name}}</div>
 
 	</div>
 </section>

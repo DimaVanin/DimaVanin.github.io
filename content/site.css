@@ -22,7 +22,10 @@ header {
 }
 
 .main_section {
+  margin-top: 50px;
+}
 
-
+.user_info .title {
+  text-align: right;
 }
 
