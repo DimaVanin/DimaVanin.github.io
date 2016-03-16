@@ -11,29 +11,19 @@
 		$stateProvider
 			.state('loginFB', {
 				url: "/loginFB",
-				templateUrl: "login.html"
+				templateUrl: "app/templates/login.html"
 			})
 			.state('userInfo', {
 				url: "/userInfo",
-				templateUrl: "userInfoTpl.html"
+				templateUrl: "app/templates/userInfoTpl.html"
 			})
-			.state('state1.list', {
+			.state('userFriends', {
 				url: "/list",
-				templateUrl: "partials/state1.list.html",
-				controller: function($scope) {
-					$scope.items = ["A", "List", "Of", "Items"];
-				}
+				templateUrl: "app/templates/userFriendsTpl.html"
 			})
 			.state('state2', {
 				url: "/state2",
 				templateUrl: "partials/state2.html"
-			})
-			.state('state2.list', {
-				url: "/list",
-				templateUrl: "partials/state2.list.html",
-				controller: function($scope) {
-					$scope.things = ["A", "Set", "Of", "Things"];
-				}
 			});
 	});
 })();
