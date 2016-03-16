@@ -34,7 +34,6 @@
 					score: response.score
 				});
 
-
 				deferred.resolve();
 			});
 
