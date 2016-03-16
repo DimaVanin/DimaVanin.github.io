@@ -7,7 +7,6 @@
 	function userService($http, $q) {
 
 		return {
-			fbLogin: fbLogin,
 			userInfo: userInfo
 		};
 
