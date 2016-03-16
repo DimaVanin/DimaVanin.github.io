@@ -11,7 +11,11 @@
 				<button class="btn btn-success" data-ng-click="mainCtrl.setScore()">Set score</button>
 			</div>
 			<div class="col-md-3 col-sm-3">
-				<input class="form-control" type="number" data-ng-model="mainCtrl.scores">
+				<input class="form-control"
+							 type="number"
+							 min="0"
+							 max="999"
+							 data-ng-model="mainCtrl.scores">
 			</div>
 			<div class="col-md-3 col-sm-3"></div>
 		</div>

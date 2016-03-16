@@ -30,13 +30,14 @@
 			$q.all({
 				me: me(),
 				picture: myPicture(),
-				score: myScore()
+				score: getScore('me'),
+				friends: myFriedns()
 			}).then(function (response) {
 				var info = {
 					id: response.me.id,
 					name: response.me.name,
 					photoUrl: response.picture.data.url,
-					score: response.score.data[0] ? response.score.data[0].score : 0
+					score: response.score
 				};
 
 				console.log(info);
@@ -75,10 +76,34 @@
 			return deferred.promise;
 		}
 
-		function myScore() {
+
+		function myFriedns() {
 			var deferred = $q.defer();
 
-			FB.api('/me/score', function (response) {
+			var friends = [];
+
+			FB.api('/me/friends', function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					//deferred.resolve(response);
+
+					response.data.forEach(function (friend, i) {
+						console.log(i);
+
+						if (i < 10) friends.push(friend);
+
+					});
+				}
+			});
+
+			return deferred.promise;
+		}
+
+		function getScore(id) {
+			var deferred = $q.defer();
+
+			FB.api('/' + id + '/score', function (response) {
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
