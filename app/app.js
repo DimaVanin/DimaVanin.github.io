@@ -3,15 +3,16 @@
 	angular.module('app', ['ui.router']);
 
 	angular.module('app').run(['$state', function ($state) {
+		debugger;
+
 		$state.transitionTo('loginFB');
+		$state.go('loginFB');
 	}]);
 
 	angular.module('app').config(function($stateProvider, $urlRouterProvider) {
-		//
-		// For any unmatched url, redirect to /state1
+
 		$urlRouterProvider.otherwise("/loginFB");
-		//
-		// Now set up the states
+
 		$stateProvider
 			.state('loginFB', {
 				url: "/loginFB",

@@ -89,9 +89,10 @@
 					deferred.resolve(response);
 
 					response.data.forEach(function (friend, i) {
-						console.log(i);
+
 
 						if (i < 10) friends.push(friend);
+
 
 					});
 				}
