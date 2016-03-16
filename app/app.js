@@ -35,7 +35,7 @@
 		}
 	});
 
-	angular.module('app').run(['$scope', '$state', function ($scope, $state) {
+	angular.module('app').run(['$state', function ($scope, $state) {
 		FB.init({
 			appId: '242826122726013',
 			xfbml: true,
@@ -48,10 +48,7 @@
 				console.log('connected');
 			} else {
 				console.log('disconnected');
-
-				$scope.apply(function(){
-					$state.go('loginFB');
-				});
+				$state.go('loginFB');
 			}
 		});
 	}]);
