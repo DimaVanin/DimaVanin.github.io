@@ -7,7 +7,7 @@
 	function userInfoCtrl(userService) {
 		var vm = this;
 
-		vm.user = userService.user;
+		vm.model = userService.model;
 
 
 		//vm.setScore = setScore;

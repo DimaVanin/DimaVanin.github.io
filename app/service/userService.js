@@ -8,16 +8,14 @@
 		var sv = this;
 
 		return {
-			user: {},
+			model: {
+				user: {}
+			},
 			userInfo: userInfo,
 			getUserInfo: getUserInfo
 		};
 
-		function updateUserInfo(userInfo){
-			debugger;
-		}
-
-		function getUserInfo(){
+		function getUserInfo() {
 			var deferred = $q.defer();
 
 			$q.all({
@@ -26,15 +24,12 @@
 				//score: getScore('me'),
 				//friends: myFriedns()
 			}).then(function (response) {
-
-				updateUserInfo({
+				deferred.resolve({
 					id: response.me.id,
 					name: response.me.name,
 					//photoUrl: response.picture.data.url,
 					score: response.score
 				});
-
-				deferred.resolve();
 			});
 
 
