@@ -16,7 +16,7 @@
 		init();
 
 		function init(){
-
+			$state.go('loginFB');
 		}
 
 		function fbLogin() {
