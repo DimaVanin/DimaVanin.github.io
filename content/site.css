@@ -43,3 +43,7 @@ header {
   overflow: hidden;
   background-size: cover;
 }
+
+.offset {
+  height: 25px;
+}

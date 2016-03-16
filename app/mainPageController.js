@@ -12,11 +12,13 @@
 		vm.user = {};
 
 		vm.fbLogin = fbLogin;
+		vm.setScore = setScore;
 
 		init();
 
 		function init(){
 		}
+
 
 		function fbLogin() {
 			mainPageService.fbLogin().then(function(){
@@ -28,5 +30,13 @@
 				});
 			});
 		}
+
+		function setScore() {
+			mainPageService.setScore(vm.scores).then(function(responce){
+				vm.user.score = vm.scores;
+				vm.scores = 0;
+			});
+		}
+
 	}
 })();
