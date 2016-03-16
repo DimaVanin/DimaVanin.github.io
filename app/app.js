@@ -42,14 +42,6 @@
 			version: 'v2.5'
 		});
 
-		FB.getLoginStatus(function (response) {
-			if (response.status === 'connected') {
-				$state.go('userInfo');
-				console.log('connected');
-			} else {
-				console.log('disconnected');
-				$state.go('loginFB');
-			}
-		});
+
 	}]);
 })();
