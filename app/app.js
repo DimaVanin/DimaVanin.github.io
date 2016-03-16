@@ -16,8 +16,8 @@
 				templateUrl: "app/userInfo/userInfoTpl.html",
 				controller: "userInfoCtrl",
 				controllerAs: "userInfoCtrl",
-				resolve : {
-					userInfo  : userInfo
+				resolve: {
+					userInfo: userInfo
 				}
 			})
 			.state('userFriends', {
@@ -30,12 +30,12 @@
 			});
 
 		userInfo.$inject = ['userService'];
-		function userInfo(userService){
+		function userInfo(userService) {
 			return userService.getUserInfo();
 		}
 	});
 
-	angular.module('app').run(['$state', function ($state) {
+	angular.module('app').run(['$scope', '$state', function ($scope, $state) {
 		FB.init({
 			appId: '242826122726013',
 			xfbml: true,
@@ -48,7 +48,10 @@
 				console.log('connected');
 			} else {
 				console.log('disconnected');
-				$state.go('loginFB');
+
+				$scope.apply(function(){
+					$state.go('loginFB');
+				});
 			}
 		});
 	}]);

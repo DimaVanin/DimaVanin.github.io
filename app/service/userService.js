@@ -13,7 +13,9 @@
 		};
 
 		function getUserInfo(){
-			return true;
+			var deferred = $q.defer();
+
+			return deferred.promise;
 		}
 
 		function userInfo() {
