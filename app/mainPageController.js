@@ -32,10 +32,8 @@
 		}
 
 		function setScore() {
-			mainPageService.setScore(vm.scores).then(function(responce){
-				vm.user.score = vm.scores;
-				vm.scores = 0;
-			});
+			vm.user.score = vm.scores;
+			vm.scores = 0;
 		}
 
 	}

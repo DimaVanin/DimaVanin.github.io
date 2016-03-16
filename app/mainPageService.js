@@ -90,17 +90,10 @@
 		}
 
 		function setScore(score) {
-			var deferred = $q.defer();
-
-			FB.api('/me/score', 'POST', {'score': score}, function (response) {
-				if (!response || response.error) {
-					deferred.reject('Error occured');
-				} else {
-					deferred.resolve(response);
+			FB.api('/me/score', 'POST', {
+					'score': score
 				}
-			});
-
-			return deferred.promise;
+			)
 		}
 	}
 })();
