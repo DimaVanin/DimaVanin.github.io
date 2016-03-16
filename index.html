@@ -55,13 +55,13 @@
 </section>
 
 <div data-ng-controller="userInfoCtrl as userInfoCtrl">
-    {{userInfoCtrl.name}}
-    <input type="text" class="form-control" data-ng-model="userInfoCtrl.name">
+    {{userInfoCtrl.user}}
+    <input type="text" class="form-control" data-ng-model="userInfoCtrl.user.name">
 </div>
 
 <div data-ng-controller="userScoreCtrl as userScoreCtrl">
-    {{userScoreCtrl.name}}
-    <input type="text" class="form-control" data-ng-model="userScoreCtrl.name">
+    {{userScoreCtrl.user}}
+    <input type="text" class="form-control" data-ng-model="userScoreCtrl.user.name">
 </div>
 
 <div data-ui-view></div>

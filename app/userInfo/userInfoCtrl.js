@@ -2,12 +2,13 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('userInfoCtrl', [ userInfoCtrl]);
+		.controller('userInfoCtrl', ['userService', userInfoCtrl]);
 
-	function userInfoCtrl() {
+	function userInfoCtrl(userService) {
 		var vm = this;
 
-		vm.user = {};
+		vm.user = userService.user;
+
 
 		//vm.setScore = setScore;
 
