@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('app', ['ui.router']);
 
-	angular.module('app').run(function($state){
-		$state.go('loginFB');
-	});
+	angular.module('app').run(['$state', function ($state) {
+		$state.transitionTo('loginFB');
+	}]);
 
 	angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 		//
