@@ -42,7 +42,7 @@
 			version: 'v2.5'
 		});
 
-		location.href = 'loginFB';
+		location.href = '#/loginFB';
 		//$state.transitionTo('loginFB');
 
 		//FB.getLoginStatus(function (response) {
