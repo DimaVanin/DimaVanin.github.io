@@ -17,6 +17,10 @@ header {
 
 .fb_login button,
 .navigation a {
+
+}
+
+.btn-full {
   width: 100%;
   margin: 0 auto;
 }
