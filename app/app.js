@@ -31,6 +31,16 @@
 
 		userInfo.$inject = ['userService'];
 		function userInfo(userService) {
+			FB.getLoginStatus(function (response) {
+				if (response.status === 'connected') {
+					$state.go('userInfo');
+					console.log('connected');
+				} else {
+					console.log('disconnected');
+					$state.go('loginFB');
+				}
+			});
+
 			return userService.getUserInfo().then(function(response){
 				userService.user = response;
 			});
