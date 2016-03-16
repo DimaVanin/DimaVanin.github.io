@@ -2,9 +2,9 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('mainPageController', ['$scope', 'mainPageService','$state', mainPageController]);
+		.controller('mainPageController', ['mainPageService','$state', mainPageController]);
 
-	function mainPageController($scope, mainPageService,$state) {
+	function mainPageController( mainPageService,$state) {
 		var vm = this;
 
 		vm.showNavigation = false;
@@ -16,6 +16,8 @@
 		init();
 
 		function init(){
+			console.log('go to login page');
+
 			$state.go('loginFB');
 		}
 
