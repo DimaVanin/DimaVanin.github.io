@@ -86,7 +86,7 @@
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
-					//deferred.resolve(response);
+					deferred.resolve(response);
 
 					response.data.forEach(function (friend, i) {
 						console.log(i);
