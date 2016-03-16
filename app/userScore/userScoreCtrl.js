@@ -7,10 +7,6 @@
 	function userScoreCtrl() {
 		var vm = this;
 
-		vm.user = {};
-
-		vm.setScore = setScore;
-
 		init();
 
 		function init() {
