@@ -35,15 +35,14 @@
 		});
 
 		FB.getLoginStatus(function (response) {
-			console.log(response);
+			location.href = '';
 
 			if (response.status === 'connected') {
-				console.log('disconnected');
 				$state.transitionTo('userInfo');
-			} else {
 				console.log('connected');
+			} else {
+				console.log('disconnected');
 				$state.transitionTo('loginFB');
-
 			}
 		});
 	}]);
