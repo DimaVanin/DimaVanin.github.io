@@ -90,8 +90,9 @@
 		}
 
 		function setScore(score) {
-			FB.api('/me/score', 'POST', {
-					'score': score
+			FB.api('/me/scores', 'POST', {
+					'score': score,
+					'score2': score
 				}
 			)
 		}
