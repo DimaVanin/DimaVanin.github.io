@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>FB Api Demo</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-	<script src="libs/angular-ui-router.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>FB Api Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="libs/angular-ui-router.min.js"></script>
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/mainPageController.js"></script>
+    <script src="app/mainPageService.js"></script>
+    <script src="libs/moment.min.js"></script>
 
-	<script src="app/app.js"></script>
-	<script src="app/mainPageController.js"></script>
-	<script src="app/mainPageService.js"></script>
-	<script src="libs/moment.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="content/reset.css">
+    <link rel="stylesheet" href="content/site.css">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="content/reset.css">
-	<link rel="stylesheet" href="content/site.css">
-
-	<base href="/">
+    <base href="/">
 </head>
 <body data-ng-controller="mainPageController as mainCtrl">
 <header>
-	FB Api Demo
+    FB Api Demo
 </header>
 
 <section class="navigation" data-ng-if="mainCtrl.showNavigation">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-			<div class="col-md-2 col-sm-2 col-xs-3">
-				<a class="btn btn-default btn-full" data-ui-sref="userInfo">User info</a>
-			</div>
-			<div class="col-md-2 col-sm-3 col-xs-3">
-				<a class="btn btn-default btn-full" data-ui-sref="userScore">User Score</a>
-			</div>
-			<div class="col-md-2 col-sm-3 col-xs-3">
-				<a class="btn btn-default btn-full" data-ui-sref="userFriends">User Friends</a>
-			</div>
-			<div class="col-md-2 col-sm-3 col-xs-3">
-				<a class="btn btn-default btn-full" data-ui-sref="leaderboard">Leaderboard</a>
-			</div>
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 hidden-sm hidden-xs"></div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <a class="btn btn-default btn-full" data-ui-sref="userInfo">User info</a>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <a class="btn btn-default btn-full" data-ui-sref="userScore">User Score</a>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <a class="btn btn-default btn-full" data-ui-sref="userFriends">User Friends</a>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <a class="btn btn-default btn-full" data-ui-sref="leaderboard">Leaderboard</a>
+            </div>
+            <div class="col-md-2 hidden-sm hidden-xs"></div>
+        </div>
+    </div>
 </section>
 
 <div data-ui-view></div>
 <script>
-//	window.fbAsyncInit = function () {
-//		FB.init({
-//			appId: '242826122726013',
-//			xfbml: true,
-//			version: 'v2.5'
-//		});
-//	};
+    //	window.fbAsyncInit = function () {
+    //		FB.init({
+    //			appId: '242826122726013',
+    //			xfbml: true,
+    //			version: 'v2.5'
+    //		});
+    //	};
 
-	(function (d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) {
-			return;
-		}
-		js = d.createElement(s);
-		js.id = id;
-		js.src = "//connect.facebook.net/en_US/sdk.js";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+    //	(function (d, s, id) {
+    //		var js, fjs = d.getElementsByTagName(s)[0];
+    //		if (d.getElementById(id)) {
+    //			return;
+    //		}
+    //		js = d.createElement(s);
+    //		js.id = id;
+    //		js.src = "//connect.facebook.net/en_US/sdk.js";
+    //		fjs.parentNode.insertBefore(js, fjs);
+    //	}(document, 'script', 'facebook-jssdk'));
 </script>
 </body>
 </html>
