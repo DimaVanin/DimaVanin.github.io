@@ -22,16 +22,20 @@
 			return deferred.promise;
 		}
 
-		function userInfo(){
-			var deferred = $q.all({
+		function userInfo() {
+			var deferred = $q.defer();
+
+			$q.all({
 				me: me,
 				picture: mePicture
+			}).then(function(response){
+				deferred.resolve(response);
 			});
 
 			return deferred.promise;
 		}
 
-		function me(){
+		function me() {
 			var deferred = $q.defer();
 
 			FB.api('/me', function (response) {
@@ -45,7 +49,7 @@
 			return deferred.promise;
 		}
 
-		function mePicture(){
+		function mePicture() {
 			var deferred = $q.defer();
 
 			FB.api('/me/picture?type=normal', function (response) {

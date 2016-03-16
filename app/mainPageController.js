@@ -9,6 +9,8 @@
 
 		vm.showNavigation = false;
 
+		vm.user = {};
+
 		vm.fbLogin = fbLogin;
 
 		init();
@@ -19,10 +21,13 @@
 
 		function fbLogin() {
 			mainPageService.fbLogin().then(function(){
-				vm.showNavigation = true;
+
+
 				mainPageService.userInfo().then(function(response){
 					console.log(response);
+					vm.showNavigation = true;
 				});
+
 			});
 		}
 	}
