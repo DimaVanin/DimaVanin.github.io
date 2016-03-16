@@ -5,10 +5,8 @@
 		.factory('mainPageService', ['$http', '$q', mainPageService]);
 
 	function mainPageService($http, $q) {
-		this.user = {};
-		var self = this;
+
 		return {
-			user: this.user,
 			fbLogin: fbLogin,
 			userInfo: userInfo,
 			setScore: setScore
@@ -34,14 +32,14 @@
 				picture: myPicture(),
 				score: myScore()
 			}).then(function (response) {
-				self.user = {
+				user = {
 					id: response.me.id,
 					name: response.me.name,
 					photoUrl: response.picture.data.url,
 					score: response.score.data
 				};
 
-				deferred.resolve(response);
+				deferred.resolve(info);
 			});
 
 			return deferred.promise;
@@ -97,7 +95,6 @@
 					deferred.reject('Error occured');
 				} else {
 					deferred.resolve(response);
-					userInfo();
 				}
 			});
 

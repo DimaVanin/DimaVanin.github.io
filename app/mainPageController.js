@@ -9,7 +9,7 @@
 
 		vm.showNavigation = false;
 		vm.scores = 0;
-		vm.user = mainPageService.user;
+		vm.user = {};
 
 		vm.fbLogin = fbLogin;
 
