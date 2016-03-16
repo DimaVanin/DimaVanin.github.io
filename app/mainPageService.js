@@ -28,7 +28,7 @@
 			$q.all({
 				me: me(),
 				picture: mePicture()
-			}).then(function(response){
+			}).then(function (response) {
 				var info = {
 					id: response.me.id,
 					name: response.me.name,
