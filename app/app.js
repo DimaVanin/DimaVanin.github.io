@@ -34,8 +34,8 @@
 			version: 'v2.5'
 		});
 
-		location.href = '';
-		$state.transitionTo('loginFB');
+		location.href = 'loginFB';
+		//$state.transitionTo('loginFB');
 
 		//FB.getLoginStatus(function (response) {
 		//	if (response.status === 'connected') {
