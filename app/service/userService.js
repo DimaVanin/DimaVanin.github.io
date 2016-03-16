@@ -14,20 +14,21 @@
 		function getUserInfo() {
 			var deferred = $q.defer();
 
+			if (userService.user.id) deferred.resolve();
+
 			$q.all({
 				me: me(),
-				//picture: myPicture(),
-				//score: getScore('me'),
-				//friends: myFriedns()
+				picture: myPicture(),
+				score: getScore('me'),
+				friends: myFriedns()
 			}).then(function (response) {
 				deferred.resolve({
 					id: response.me.id,
 					name: response.me.name,
-					//photoUrl: response.picture.data.url,
+					photoUrl: response.picture.data.url,
 					score: response.score
 				});
 			});
-
 
 			return deferred.promise;
 		}
