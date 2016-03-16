@@ -26,8 +26,8 @@
 			var deferred = $q.defer();
 
 			$q.all({
-				me: me,
-				picture: mePicture
+				me: me(),
+				picture: mePicture()
 			}).then(function(response){
 				deferred.resolve(response);
 			});
