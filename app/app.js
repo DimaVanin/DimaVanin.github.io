@@ -9,19 +9,21 @@
 		$stateProvider
 			.state('loginFB', {
 				url: "/loginFB",
-				templateUrl: "app/templates/login.html"
+				templateUrl: "app/login/login.html"
 			})
 			.state('userInfo', {
 				url: "/userInfo",
-				templateUrl: "app/templates/userInfoTpl.html"
+				templateUrl: "app/userInfo/userInfoTpl.html",
+				controller: "userInfoCtrl",
+				controllerAs: "userInfoCtrl"
 			})
 			.state('userFriends', {
 				url: "/list",
-				templateUrl: "app/templates/userFriendsTpl.html"
+				templateUrl: "app/userFriends/userFriendsTpl.html"
 			})
 			.state('userScore', {
 				url: "/userScore",
-				templateUrl: "app/templates/userScoreTpl.html"
+				templateUrl: "app/userScore/userScoreTpl.html"
 			});
 	});
 
@@ -30,17 +32,15 @@
 			appId: '242826122726013',
 			xfbml: true,
 			version: 'v2.5'
-		}, function (response) {
-			debugger;
 		});
-
 
 		FB.getLoginStatus(function (response) {
-			debugger;
+			if (response.status === 'connected') {
+				$state.transitionTo('loginFB');
+			} else {
+				$state.transitionTo('loginFB');
+
+			}
 		});
-
-
-		$state.transitionTo('loginFB');
-		$state.go('loginFB');
 	}]);
 })();
