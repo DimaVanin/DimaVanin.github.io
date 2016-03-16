@@ -5,6 +5,7 @@
 		.factory('userService', ['$http', '$q', userService]);
 
 	function userService($http, $q) {
+		var sv = this;
 
 		return {
 			user: {},
@@ -23,7 +24,7 @@
 			}).then(function (response) {
 				debugger;
 
-				this.user = {
+				sv.user = {
 					id: response.me.id,
 					name: response.me.name,
 					//photoUrl: response.picture.data.url,
