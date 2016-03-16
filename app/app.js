@@ -36,9 +36,9 @@
 
 		FB.getLoginStatus(function (response) {
 			if (response.status === 'connected') {
-				$state.transitionTo('loginFB');
+				//$state.transitionTo('loginFB');
 			} else {
-				$state.transitionTo('loginFB');
+				//$state.transitionTo('loginFB');
 
 			}
 		});
