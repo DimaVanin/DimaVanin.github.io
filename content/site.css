@@ -29,10 +29,6 @@ header {
   text-align: right;
 }
 
-.user_info br {
-  height: 10px;
-}
-
 .img_container {
   display: flex;
   align-items: center;
@@ -40,6 +36,8 @@ header {
 }
 
 .img_container > div {
+  height: 150px;
+  width: 150px;
   margin: 10px;
   border-radius: 50%;
   overflow: hidden;
