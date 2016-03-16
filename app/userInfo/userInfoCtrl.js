@@ -7,20 +7,10 @@
 	function userInfoCtrl(userService) {
 		var vm = this;
 
-		vm.model = userService.model;
-		debugger;
-
-		//vm.setScore = setScore;
-
 		init();
 
-		//mainPageService.userInfo().then(function (responce) {
-		//	$state.go('userInfo');
-		//
-		//	vm.showNavigation = true;
-		//});
-
 		function init() {
+			vm.user = userService.user;
 		}
 	}
 })();

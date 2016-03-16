@@ -5,12 +5,8 @@
 		.factory('userService', ['$http', '$q', userService]);
 
 	function userService($http, $q) {
-		var sv = this;
-
 		return {
-			model: {
-				user: {}
-			},
+			model: {},
 			userInfo: userInfo,
 			getUserInfo: getUserInfo
 		};
