@@ -16,20 +16,14 @@
 		init();
 
 		function init(){
-			console.log('go to login page');
-
-			$state.go('loginFB');
 		}
 
 		function fbLogin() {
 			mainPageService.fbLogin().then(function(){
-				$state.go('userInfo');
-				vm.showNavigation = true;
-
-				mainPageService.userInfo().then(function(response){
-					vm.user = response;
+				mainPageService.userInfo().then(function(){
+					$state.go('userInfo');
+					vm.showNavigation = true;
 				});
-
 			});
 		}
 	}

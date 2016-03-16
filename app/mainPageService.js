@@ -41,7 +41,7 @@
 					score: response.score.data
 				};
 
-				deferred.resolve(info);
+				deferred.resolve(response);
 			});
 
 			return deferred.promise;

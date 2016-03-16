@@ -2,6 +2,10 @@
 	'use strict';
 	angular.module('app', ['ui.router']);
 
+	angular.module('app').run(function($state){
+		$state.go('loginFB');
+	});
+
 	angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 		//
 		// For any unmatched url, redirect to /state1
