@@ -36,9 +36,11 @@
 
 		FB.getLoginStatus(function (response) {
 			if (response.status === 'connected') {
-				//$state.transitionTo('loginFB');
+				console.log('disconnected');
+				$state.transitionTo('userInfo');
 			} else {
-				//$state.transitionTo('loginFB');
+				console.log('connected');
+				$state.transitionTo('loginFB');
 
 			}
 		});
