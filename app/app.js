@@ -15,7 +15,10 @@
 				url: "/userInfo",
 				templateUrl: "app/userInfo/userInfoTpl.html",
 				controller: "userInfoCtrl",
-				controllerAs: "userInfoCtrl"
+				controllerAs: "userInfoCtrl",
+				resolve : {
+					userInfo  : userInfo
+				}
 			})
 			.state('userFriends', {
 				url: "/list",
@@ -25,6 +28,11 @@
 				url: "/userScore",
 				templateUrl: "app/userScore/userScoreTpl.html"
 			});
+
+		userInfo.$inject = ['userService'];
+		function userInfo(userService){
+			return userService.getUserInfo();
+		}
 	});
 
 	angular.module('app').run(['$state', function ($state) {
