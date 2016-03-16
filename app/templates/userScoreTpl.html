@@ -1,23 +1,23 @@
 <section class="main_section user_info">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 title">User Score:</div>
-			<div class="col-md-6">{{mainCtrl.user.score}}</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 title">User Score:</div>
+			<div class="col-md-6 col-sm-6 col-xs-6">{{mainCtrl.user.score}}</div>
 
 			<div class="col-md-12 offset"></div>
 
-			<div class="col-md-3 col-sm-3"></div>
-			<div class="col-md-3 col-sm-3">
+			<div class="col-md-3 col-sm-3 col-xs-3"></div>
+			<div class="col-md-3 col-sm-3 col-xs-3">
 				<button class="btn btn-success btn-full" data-ng-click="mainCtrl.setScore()">Set score</button>
 			</div>
-			<div class="col-md-3 col-sm-3">
+			<div class="col-md-3 col-sm-3 col-xs-3">
 				<input class="form-control"
 							 type="number"
 							 min="0"
 							 max="999"
 							 data-ng-model="mainCtrl.scores">
 			</div>
-			<div class="col-md-3 col-sm-3"></div>
+			<div class="col-md-3 col-sm-3 col-xs-3"></div>
 		</div>
 	</div>
 </section>
