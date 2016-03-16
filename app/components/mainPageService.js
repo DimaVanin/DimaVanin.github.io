@@ -2,10 +2,9 @@
 	'use strict';
 	angular
 		.module('app')
-		.factory('mainPageService', [mainPageService]);
+		.factory('mainPageService', ['$q', mainPageService]);
 
-	function mainPageService() {
-
+	function mainPageService($q) {
 		return {
 			fbLogin: fbLogin,
 			fbLogout: fbLogout
