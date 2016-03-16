@@ -8,7 +8,7 @@
 		var user = {};
 
 		return {
-			user: user,
+			user: {user: user},
 			fbLogin: fbLogin,
 			userInfo: userInfo,
 			setScore: setScore
