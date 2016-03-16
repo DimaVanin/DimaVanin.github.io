@@ -12,6 +12,7 @@
 		vm.user = userService.user;
 
 		function init() {
+			userService.userInfo();
 		}
 	}
 })();
