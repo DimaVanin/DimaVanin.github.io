@@ -42,17 +42,17 @@
 			version: 'v2.5'
 		});
 
-		location.href = '#/loginFB';
+		//location.href = '#/loginFB';
 		//$state.transitionTo('loginFB');
 
-		//FB.getLoginStatus(function (response) {
-		//	if (response.status === 'connected') {
-		//		$state.transitionTo('userInfo');
-		//		console.log('connected');
-		//	} else {
-		//		console.log('disconnected');
-		//		$state.transitionTo('loginFB');
-		//	}
-		//});
+		FB.getLoginStatus(function (response) {
+			if (response.status === 'connected') {
+				$state.go('userInfo');
+				console.log('connected');
+			} else {
+				console.log('disconnected');
+				$state.go('loginFB');
+			}
+		});
 	}]);
 })();
