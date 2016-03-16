@@ -2,9 +2,9 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('mainPageController', ['mainPageService','$state', mainPageController]);
+		.controller('mainPageController', ['mainPageService', '$state', mainPageController]);
 
-	function mainPageController( mainPageService,$state) {
+	function mainPageController(mainPageService, $state) {
 		var vm = this;
 
 		vm.showNavigation = false;
@@ -16,13 +16,13 @@
 
 		init();
 
-		function init(){
+		function init() {
 		}
 
 
 		function fbLogin() {
-			mainPageService.fbLogin().then(function(){
-				mainPageService.userInfo().then(function(responce){
+			mainPageService.fbLogin().then(function () {
+				mainPageService.userInfo().then(function (responce) {
 					$state.go('userInfo');
 					vm.user = responce;
 
@@ -34,6 +34,7 @@
 		function setScore() {
 			vm.user.score = vm.scores;
 			vm.scores = 0;
+			mainPageService.setScore(vm.scores);
 		}
 
 	}
