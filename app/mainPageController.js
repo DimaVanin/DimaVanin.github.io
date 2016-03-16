@@ -32,9 +32,10 @@
 		}
 
 		function setScore() {
+			mainPageService.setScore(vm.scores);
+
 			vm.user.score = vm.scores;
 			vm.scores = 0;
-			mainPageService.setScore(vm.scores);
 		}
 
 	}
