@@ -8,8 +8,13 @@
 
 		return {
 			user: {},
-			userInfo: userInfo
+			userInfo: userInfo,
+			getUserInfo: getUserInfo
 		};
+
+		function getUserInfo(){
+			return true;
+		}
 
 		function userInfo() {
 			var deferred = $q.defer();
