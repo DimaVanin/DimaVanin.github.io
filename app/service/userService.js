@@ -17,8 +17,8 @@
 
 			$q.all({
 				me: me(),
-				picture: myPicture(),
-				score: getScore('me'),
+				//picture: myPicture(),
+				//score: getScore('me'),
 				//friends: myFriedns()
 			}).then(function (response) {
 				debugger;
@@ -31,7 +31,7 @@
 				};
 
 
-				deferred.resolve(info);
+				deferred.resolve();
 			});
 
 
