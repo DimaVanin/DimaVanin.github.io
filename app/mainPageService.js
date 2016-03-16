@@ -20,7 +20,7 @@
 				} else {
 					deferred.resolve(response);
 				}
-			}, {scope: ['publish_actions', 'user_friends']});
+			}, {scope: 'publish_actions'});
 			return deferred.promise;
 		}
 
