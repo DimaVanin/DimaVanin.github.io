@@ -42,6 +42,8 @@
 				};
 
 				console.log(user);
+				console.log(user);
+				console.log(user);
 
 				deferred.resolve(response);
 			});
