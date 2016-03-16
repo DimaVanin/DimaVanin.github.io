@@ -29,7 +29,13 @@
 				me: me(),
 				picture: mePicture()
 			}).then(function(response){
-				deferred.resolve(response);
+				var info = {
+					id: response.me.id,
+					name: response.me.name,
+					photoUrl: response.picture.data.url
+				};
+
+				deferred.resolve(info);
 			});
 
 			return deferred.promise;
