@@ -41,6 +41,8 @@
 					score: response.score.data
 				};
 
+				console.log(user);
+
 				deferred.resolve(response);
 			});
 
