@@ -24,7 +24,7 @@
 
 
 				mainPageService.userInfo().then(function(response){
-					console.log(response);
+					vm.user = response;
 					vm.showNavigation = true;
 				});
 
