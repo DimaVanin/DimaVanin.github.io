@@ -41,5 +41,5 @@ header {
   margin: 10px;
   border-radius: 50%;
   overflow: hidden;
-  background-size: contain;
+  background-size: cover;
 }

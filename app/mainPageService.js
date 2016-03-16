@@ -5,9 +5,13 @@
 		.factory('mainPageService', ['$http', '$q', mainPageService]);
 
 	function mainPageService($http, $q) {
+		var user = {};
+
 		return {
+			user: user,
 			fbLogin: fbLogin,
-			userInfo: userInfo
+			userInfo: userInfo,
+			setScore: setScore
 		};
 
 		function fbLogin() {
@@ -27,12 +31,14 @@
 
 			$q.all({
 				me: me(),
-				picture: mePicture()
+				picture: myPicture(),
+				score: myScore()
 			}).then(function (response) {
-				var info = {
+				user = {
 					id: response.me.id,
 					name: response.me.name,
-					photoUrl: response.picture.data.url
+					photoUrl: response.picture.data.url,
+					score: response.score.data
 				};
 
 				deferred.resolve(info);
@@ -55,7 +61,7 @@
 			return deferred.promise;
 		}
 
-		function mePicture() {
+		function myPicture() {
 			var deferred = $q.defer();
 
 			FB.api('/me/picture?type=normal', function (response) {
@@ -63,6 +69,35 @@
 					deferred.reject('Error occured');
 				} else {
 					deferred.resolve(response);
+				}
+			});
+
+			return deferred.promise;
+		}
+
+		function myScore() {
+			var deferred = $q.defer();
+
+			FB.api('/me/score', function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					deferred.resolve(response);
+				}
+			});
+
+			return deferred.promise;
+		}
+
+		function setScore(score) {
+			var deferred = $q.defer();
+
+			FB.api('/me/score', 'POST', {'score': score}, function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					deferred.resolve(response);
+					userInfo();
 				}
 			});
 

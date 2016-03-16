@@ -8,8 +8,8 @@
 		var vm = this;
 
 		vm.showNavigation = false;
-
-		vm.user = {};
+		vm.scores = 0;
+		vm.user = mainPageService.user;
 
 		vm.fbLogin = fbLogin;
 
