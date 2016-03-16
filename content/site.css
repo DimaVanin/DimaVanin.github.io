@@ -30,9 +30,18 @@ header {
 }
 
 .img_container {
-  position: relative
+  position: relative;
+  width: 100%;
 }
-.img_container img{
+
+.img_container > div {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
   margin: 0 auto;
   position: absolute;
+}
+
+.img_container > div > img{
+
 }
