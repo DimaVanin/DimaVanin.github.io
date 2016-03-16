@@ -9,7 +9,7 @@
 
 		vm.user = {};
 
-		vm.setScore = setScore;
+		//vm.setScore = setScore;
 
 		init();
 
