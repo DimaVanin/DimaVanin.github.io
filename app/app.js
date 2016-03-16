@@ -32,7 +32,7 @@
 		userInfo.$inject = ['userService'];
 		function userInfo(userService) {
 			return userService.getUserInfo().then(function(response){
-				userService.model = response;
+				userService.user = response;
 			});
 		}
 	});

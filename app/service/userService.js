@@ -6,7 +6,7 @@
 
 	function userService($http, $q) {
 		return {
-			model: {},
+			user: {},
 			userInfo: userInfo,
 			getUserInfo: getUserInfo
 		};
