@@ -35,8 +35,6 @@
 		});
 
 		FB.getLoginStatus(function (response) {
-			location.href = '';
-
 			if (response.status === 'connected') {
 				$state.transitionTo('userInfo');
 				console.log('connected');
