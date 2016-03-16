@@ -36,7 +36,7 @@
 					id: response.me.id,
 					name: response.me.name,
 					photoUrl: response.picture.data.url,
-					score: response.score.data.score || 0
+					score: response.score.data[0].score || 0
 				};
 
 				console.log(info);
