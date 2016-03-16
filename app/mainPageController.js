@@ -20,8 +20,9 @@
 
 		function fbLogin() {
 			mainPageService.fbLogin().then(function(){
-				mainPageService.userInfo().then(function(){
+				mainPageService.userInfo().then(function(responce){
 					$state.go('userInfo');
+					vm.user = responce;
 					vm.showNavigation = true;
 				});
 			});
