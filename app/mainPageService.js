@@ -5,10 +5,10 @@
 		.factory('mainPageService', ['$http', '$q', mainPageService]);
 
 	function mainPageService($http, $q) {
-		var user = {};
-
+		this.user = {};
+		var self = this;
 		return {
-			user: {user: user},
+			user: this.user,
 			fbLogin: fbLogin,
 			userInfo: userInfo,
 			setScore: setScore
@@ -34,16 +34,12 @@
 				picture: myPicture(),
 				score: myScore()
 			}).then(function (response) {
-				user = {
+				self.user = {
 					id: response.me.id,
 					name: response.me.name,
 					photoUrl: response.picture.data.url,
 					score: response.score.data
 				};
-
-				console.log(user);
-				console.log(user);
-				console.log(user);
 
 				deferred.resolve(response);
 			});
