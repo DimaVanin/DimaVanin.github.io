@@ -7,6 +7,7 @@
 	function userService($http, $q) {
 
 		return {
+			user: {},
 			userInfo: userInfo
 		};
 
