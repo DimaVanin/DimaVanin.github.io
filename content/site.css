@@ -29,3 +29,10 @@ header {
   text-align: right;
 }
 
+.img_container {
+  position: relative
+}
+.img_container img{
+  margin: 0 auto;
+  position: absolute;
+}
