@@ -1,21 +1,24 @@
 (function () {
-    'use strict';
-    angular
-        .module('app')
-        .factory('mainPageService', ['$http', mainPageService]);
+	'use strict';
+	angular
+		.module('app')
+		.factory('mainPageService', ['$http', '$q', mainPageService]);
 
-    function mainPageService($http) {
-        return {
-            getTaskList: getTaskList,
-            getTypeList: getTypeList
-        };
+	function mainPageService($http, $q) {
+		return {
+			fbLogin: fbLogin
+		};
 
-        function getTaskList() {
-            //return $http.get('http://rygorh.dev.monterosa.co.uk/todo/items.php');
-        }
-
-        function getTypeList() {
-            //return $http.get('http://rygorh.dev.monterosa.co.uk/todo/types.php');
-        }
-    }
+		function fbLogin() {
+			var deferred = $q.defer();
+			FB.login(function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					deferred.resolve(response);
+				}
+			}, {scope: 'publish_actions'});
+			return deferred.promise;
+		}
+	}
 })();

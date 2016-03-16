@@ -2,9 +2,9 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('mainPageController', ['$scope', 'mainPageService', mainPageController]);
+		.controller('userCtrl', ['$scope', 'userCtrl', userCtrl]);
 
-	function mainPageController($scope, mainPageService) {
+	function userCtrl($scope) {
 		var vm = this;
 
 		vm.showNavigation = false;

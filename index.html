@@ -10,6 +10,7 @@
 	<script src="app/app.js"></script>
 	<script src="app/mainPageController.js"></script>
 	<script src="app/mainPageService.js"></script>
+	<script src="app/userInfo/userCtrl.js"></script>
 	<script src="libs/moment.min.js"></script>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -24,7 +25,8 @@
 <header>
 	FB Api Demo
 </header>
-<section class="fb_login">
+
+<section class="fb_login" data-ng-if="!mainCtrl.showNavigation">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5"></div>
@@ -36,6 +38,45 @@
 	</div>
 </section>
 
-<div ui-view></div>
+<section class="navigation" data-ng-if="!mainCtrl.showNavigation">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-2">
+				<a class="btn btn-default" data-ui-sref="userInfo">User info</a>
+			</div>
+			<div class="col-md-2">
+				<a class="btn btn-default" data-ui-sref="userFriends">User Friends</a>
+			</div>
+			<div class="col-md-2">
+				<a class="btn btn-default" data-ui-sref="leaderboard">Leaderboard</a>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</section>
+
+<div data-ui-view></div>
+
+<script>
+	window.fbAsyncInit = function () {
+		FB.init({
+			appId: '242826122726013',
+			xfbml: true,
+			version: 'v2.5'
+		});
+	};
+
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
 </body>
 </html>
