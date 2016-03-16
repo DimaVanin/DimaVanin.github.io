@@ -25,9 +25,9 @@
 				url: "/list",
 				templateUrl: "app/templates/userFriendsTpl.html"
 			})
-			.state('state2', {
-				url: "/state2",
-				templateUrl: "partials/state2.html"
+			.state('userScore', {
+				url: "/userScore",
+				templateUrl: "app/templates/userScoreTpl.html"
 			});
 	});
 })();
