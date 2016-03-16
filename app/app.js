@@ -2,7 +2,7 @@
 	'use strict';
 	angular.module('app', ['ui.router']);
 
-	angular.module('app').config(function($stateProvider, $urlRouterProvider) {
+	angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
 
 		$urlRouterProvider.otherwise("/loginFB");
 
@@ -26,7 +26,16 @@
 	});
 
 	angular.module('app').run(['$state', function ($state) {
-		FB.getLoginStatus(function(response){
+		FB.init({
+			appId: '242826122726013',
+			xfbml: true,
+			version: 'v2.5'
+		}, function (response) {
+			debugger;
+		});
+
+
+		FB.getLoginStatus(function (response) {
 			debugger;
 		});
 
