@@ -42,9 +42,6 @@
 			version: 'v2.5'
 		});
 
-		//location.href = '#/loginFB';
-		//$state.transitionTo('loginFB');
-
 		FB.getLoginStatus(function (response) {
 			if (response.status === 'connected') {
 				$state.go('userInfo');
