@@ -1,87 +1,46 @@
 (function () {
-    'use strict';
-    angular
-        .module('app')
-        .controller('mainPageController', ['$scope', '$q', 'mainPageService', mainPageController]);
+	'use strict';
+	angular
+		.module('app')
+		.controller('mainPageController', ['$scope', '$q', 'mainPageService', mainPageController]);
 
-    function mainPageController($scope, $q, mainPageService) {
-        var vm = this;
+	function mainPageController($scope, $q, mainPageService) {
+		var vm = this;
 
-        vm.angActive = false;
-        vm.jQueryActive = false;
-        vm.itemLoaded = false;
-        vm.showAddNew = false;
-        vm.taskList = [];
-        vm.typeList = [];
-        vm.newTask = {};
+		vm.showNavigation = false;
 
-        vm.viewAngular = viewAngular;
-        vm.viewJQuery = viewJQuery;
-        vm.parseData = parseData;
-        vm.defineType = defineType;
-        vm.addNewTask = addNewTask;
+		vm.fbLogin = fbLogin;
 
-        function viewAngular() {
-            vm.angActive = true;
-            vm.jQueryActive = false;
-            vm.showAddNew = false;
 
-            if (!vm.itemLoaded) {
-                loadToDoList();
-            }
-        }
+		init();
 
-        function viewJQuery() {
-            vm.angActive = false;
-            vm.jQueryActive = true;
-        }
 
-        function loadToDoList() {
-            var promise = $q.all({
-                taskList: mainPageService.getTaskList(),
-                typeList: mainPageService.getTypeList()
-            });
+		function init(){
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : '242826122726013',
+					xfbml      : true,
+					version    : 'v2.5'
+				});
+			};
 
-            promise.then(successLoaded, errorLoaded);
-        }
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		}
 
-        function successLoaded(data) {
-            vm.itemLoaded = true;
+		function fbLogin() {
+			FB.init({
+				appId      : '242826122726013',
+				xfbml      : true,
+				version    : 'v2.5'
+			});
 
-            vm.taskList = data.taskList.data || [];
-            vm.typeList = data.typeList.data || [];
-            vm.newTask.type = vm.typeList[0].id;
-        }
-
-        function errorLoaded(data) {
-            vm.itemLoaded = false;
-            alert(data);
-        }
-
-        function parseData(time) {
-            return moment(time).format('lll');
-        }
-
-        function defineType(id) {
-            var result = "";
-            vm.typeList.forEach(function (type) {
-                if (id == type.id) {
-                    result = type.name || '';
-                }
-            });
-            return result;
-        }
-
-        function addNewTask() {
-            vm.newTask.expires_at = +vm.newTask.expires_at;
-            vm.newTask.expires_at = Date.parse(moment().add(vm.newTask.expires_at,'hours'));
-            vm.newTask.created_at = Date.parse(moment());
-            vm.taskList.push(vm.newTask);
-            vm.newTask = {
-                task: '',
-                created_at: '',
-                expires_at: ''
-            }
-        }
-    }
+			FB.login(function (response) {}, { scope:'publish_actions' });
+		}
+	}
 })();

@@ -11,11 +11,11 @@
         };
 
         function getTaskList() {
-            return $http.get('http://rygorh.dev.monterosa.co.uk/todo/items.php');
+            //return $http.get('http://rygorh.dev.monterosa.co.uk/todo/items.php');
         }
 
         function getTypeList() {
-            return $http.get('http://rygorh.dev.monterosa.co.uk/todo/types.php');
+            //return $http.get('http://rygorh.dev.monterosa.co.uk/todo/types.php');
         }
     }
 })();
