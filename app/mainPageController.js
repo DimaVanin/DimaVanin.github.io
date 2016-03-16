@@ -18,8 +18,11 @@
 		}
 
 		function fbLogin() {
-			mainPageService.fbLogin().then(function(response){
+			mainPageService.fbLogin().then(function(){
 				vm.showNavigation = true;
+				mainPageService.userInfo().then(function(response){
+					console.log(response);
+				});
 			});
 		}
 	}

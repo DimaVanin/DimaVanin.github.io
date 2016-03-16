@@ -6,7 +6,8 @@
 
 	function mainPageService($http, $q) {
 		return {
-			fbLogin: fbLogin
+			fbLogin: fbLogin,
+			userInfo: userInfo
 		};
 
 		function fbLogin() {
@@ -18,6 +19,43 @@
 					deferred.resolve(response);
 				}
 			}, {scope: 'publish_actions'});
+			return deferred.promise;
+		}
+
+		function userInfo(){
+			var deferred = $q.all({
+				me: me,
+				picture: mePicture
+			});
+
+			return deferred.promise;
+		}
+
+		function me(){
+			var deferred = $q.defer();
+
+			FB.api('/me', function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					deferred.resolve(response);
+				}
+			});
+
+			return deferred.promise;
+		}
+
+		function mePicture(){
+			var deferred = $q.defer();
+
+			FB.api('/me/picture?type=normal', function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					deferred.resolve(response);
+				}
+			});
+
 			return deferred.promise;
 		}
 	}

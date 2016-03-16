@@ -10,7 +10,6 @@
 	<script src="app/app.js"></script>
 	<script src="app/mainPageController.js"></script>
 	<script src="app/mainPageService.js"></script>
-	<script src="app/userInfo/userCtrl.js"></script>
 	<script src="libs/moment.min.js"></script>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -56,8 +55,18 @@
 	</div>
 </section>
 
-<div data-ui-view></div>
+<section class="main_section user_info">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-3"></div>
+		<div class="col-md-3"></div>
+		<div class="col-md-3"></div>
 
+	</div>
+</section>
+
+
+<div data-ui-view></div>
 <script>
 	window.fbAsyncInit = function () {
 		FB.init({
