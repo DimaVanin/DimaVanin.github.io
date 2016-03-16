@@ -11,7 +11,7 @@
 
 		function fbLogin() {
 			mainPageService.fbLogin().then(function () {
-				$state.transitionTo('userInfo');
+				$state.go('userInfo');
 			});
 		}
 	}

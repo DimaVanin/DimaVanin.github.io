@@ -13,7 +13,9 @@
 
 		function userInfo() {
 			var deferred = $q.defer();
+
 			debugger;
+
 			$q.all({
 				me: me(),
 				picture: myPicture(),
