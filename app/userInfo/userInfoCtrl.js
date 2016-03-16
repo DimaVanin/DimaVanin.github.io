@@ -8,7 +8,7 @@
 		var vm = this;
 
 		vm.model = userService.model;
-
+		debugger;
 
 		//vm.setScore = setScore;
 
