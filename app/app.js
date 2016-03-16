@@ -35,7 +35,7 @@
 		}
 	});
 
-	angular.module('app').run(['$state', function ($scope, $state) {
+	angular.module('app').run(['$state', function ($state) {
 		FB.init({
 			appId: '242826122726013',
 			xfbml: true,
