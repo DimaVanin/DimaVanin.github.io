@@ -1,17 +1,18 @@
 <section class="main_section user_info">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="img_container">
-					<div data-ng-style="{'background-image':'url(' + mainCtrl.user.photoUrl + ')'}">
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6 title">User Id:</div>
-			<div class="col-md-6 col-sm-6 col-xs-6">{{mainCtrl.user.id}}</div>
-			<div class="clearfix"></div>
-			<div class="col-md-6 col-sm-6 col-xs-6 title">User Name:</div>
-			<div class="col-md-6 col-sm-6 col-xs-6 ">{{mainCtrl.user.name}}</div>
-		</div>
-	</div>
+    {{mainCtrl.model}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="img_container">
+                    <div data-ng-style="{'background-image':'url(' + mainCtrl.user.photoUrl + ')'}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 title">User Id:</div>
+            <div class="col-md-6 col-sm-6 col-xs-6">{{mainCtrl.user.id}}</div>
+            <div class="clearfix"></div>
+            <div class="col-md-6 col-sm-6 col-xs-6 title">User Name:</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 ">{{mainCtrl.user.name}}</div>
+        </div>
+    </div>
 </section>
