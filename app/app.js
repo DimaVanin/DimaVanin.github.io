@@ -35,6 +35,8 @@
 		});
 
 		FB.getLoginStatus(function (response) {
+			console.log(response);
+
 			if (response.status === 'connected') {
 				console.log('disconnected');
 				$state.transitionTo('userInfo');
