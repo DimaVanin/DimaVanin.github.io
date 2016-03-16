@@ -15,6 +15,26 @@
 		function getUserInfo(){
 			var deferred = $q.defer();
 
+			$q.all({
+				me: me(),
+				picture: myPicture(),
+				score: getScore('me'),
+				//friends: myFriedns()
+			}).then(function (response) {
+				debugger;
+
+				this.user = {
+					id: response.me.id,
+					name: response.me.name,
+					//photoUrl: response.picture.data.url,
+					score: response.score
+				};
+
+
+				deferred.resolve(info);
+			});
+
+
 			return deferred.promise;
 		}
 
