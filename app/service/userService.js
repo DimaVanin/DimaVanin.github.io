@@ -27,7 +27,8 @@
 					deferred.resolve(
 						angular.extend({}, response.me, {
 							photoUrl: response.picture.data.url,
-							score: response.score
+							score: response.score,
+							friends: response.friends
 						}));
 				});
 			}
