@@ -7,7 +7,7 @@
 		$urlRouterProvider.otherwise("/loginFB");
 
 		$stateProvider
-			.state('login', {
+			.state('loginFB', {
 				url: "/loginFB",
 				templateUrl: "app/login/login.html"
 			})
@@ -24,11 +24,11 @@
 					}]
 				}
 			})
-			.state('score', {
+			.state('userScore', {
 				url: "/userScore",
 				templateUrl: "app/userScore/userScoreTpl.html"
 			})
-			.state('friends', {
+			.state('userFriends', {
 				url: "/userFriends",
 				templateUrl: "app/userFriends/userFriendsTpl.html"
 			})
@@ -46,7 +46,7 @@
 		});
 
 		$rootScope.$on('$stateChangeStart', function (event) {
-			//event.preventDefault();
+			event.preventDefault();
 			//$state.go('login');
 		});
 	}]);
