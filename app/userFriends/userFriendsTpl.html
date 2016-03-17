@@ -2,23 +2,44 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				n v2.0 of the Graph API, calling /me/friends returns the person's friends who also use the app.
 
-				In addition, in v2.0, you must request the user_friends permission from each user. user_friends is no longer included by default in every login. Each user must grant the user_friends permission in order to appear in the response to /me/friends. See the Facebook upgrade guide for more detailed information, or review the summary below.
+				<blockquote>
+					<p>In v2.0 of the Graph API, calling /me/friends returns the person's friends who also use the app.</p>
 
-				If you want to access a list of non-app-using friends, there are two options:
+					<p>In addition, in v2.0, you must request the user_friends permission from each user.
+						user_friends is no longer included by default in every login.
+						Each user must grant the user_friends permission in order to appear in the response to /me/friends.
+						See the Facebook upgrade guide for more detailed information, or review the summary below.</p>
 
-				If you want to let your people tag their friends in stories that they publish to Facebook using your App, you can use the /me/taggable_friends API. Use of this endpoint requires review by Facebook and should only be used for the case where you're rendering a list of friends in order to let the user tag them in a post.
+					<p>If you want to access a list of non-app-using friends, there are two options:</p>
 
-				If your App is a Game AND your Game supports Facebook Canvas, you can use the /me/invitable_friends endpoint in order to render a custom invite dialog, then pass the tokens returned by this API to the standard Requests Dialog.
+					<p> 1) If you want to let your people tag their friends in stories that they publish to Facebook
+						using your App, you can use the /me/taggable_friends API. Use of this endpoint requires review by Facebook
+						and should only be used for the case where you're rendering a list of friends in order to let the user tag
+						them in a post.
+					</p>
 
-				In other cases, apps are no longer able to retrieve the full list of a user's friends (only those friends who have specifically authorized your app using the user_friends permission). This has been confirmed by Facebook as 'by design'.
+					<p> 2)If your App is a Game AND your Game supports Facebook Canvas, you can use the /me/invitable_friends
+						endpoint in order to render a custom invite dialog, then pass the tokens returned by this API to the
+						standard Requests Dialog.
+					</p>
 
-				For apps wanting allow people to invite friends to use an app, you can still use the Send Dialog on Web or the new Message Dialog on iOS and Android.
+					<p>In other cases, apps are no longer able to retrieve the full list of a user's friends (only those friends
+						who have specifically authorized your app using the user_friends permission). This has been confirmed by
+						Facebook as 'by design'.
+					</p>
 
-				UPDATE: Facebook have published an FAQ on these changes here: https://developers.facebook.com/docs/apps/faq which explain all the options available to developers in order to invite friends etc.
+					<p>For apps wanting allow people to invite friends to use an app, you can still use the Send Dialog on Web or
+						the new Message Dialog on iOS and Android.
+					</p>
+
+					<p>UPDATE: Facebook have published an FAQ on these changes here:
+						https://developers.facebook.com/docs/apps/faq which explain all the options available to developers in order
+						to invite friends etc.
+					</p>
+				</blockquote>
+
 			</div>
 		</div>
 	</div>
-
 </section>
