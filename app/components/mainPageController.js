@@ -17,10 +17,8 @@
 			FB.getAuthResponse(function (response) {
 				if (response.status === 'connected') {
 					vm.isAuthorised = true;
-					console.log('connected');
 				} else {
 					vm.isAuthorised = false;
-					console.log('disconnected');
 				}
 			});
 		}
