@@ -33,6 +33,7 @@
 					userInfo: ['userService', function (userService) {
 						return userService.getUserInfo().then(function (response) {
 							userService.user = response;
+							console.log(userService.user);
 						});
 					}]
 				}
