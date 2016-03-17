@@ -9,7 +9,7 @@
 		return {
 			user: {},
 			getUserInfo: getUserInfo,
-			setScore: setScore
+			setScores: setScores
 		};
 
 		function getUserInfo() {
@@ -103,11 +103,26 @@
 			return deferred.promise;
 		}
 
-		function setScore(score) {
+		function setScores(score) {
+			var deferred = $q.defer();
+
+			var self = this;
+
 			FB.api('/me/scores', 'POST', {
 					'score': score
+				}, function(response){
+					if (!response || response.error) {
+						deferred.reject('Error occured');
+					} else {
+						debugger;
+
+						self.user.score = score;
+						deferred.resolve(response);
+					}
 				}
-			)
+			);
+
+			return deferred.promise;
 		}
 	}
 })();
