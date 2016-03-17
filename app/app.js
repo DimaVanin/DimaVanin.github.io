@@ -46,8 +46,8 @@
 		});
 
 		$rootScope.$on('$stateChangeStart', function (event) {
-			event.preventDefault();
-			$state.go('login');
+			//event.preventDefault();
+			//$state.go('login');
 		});
 	}]);
 })();
