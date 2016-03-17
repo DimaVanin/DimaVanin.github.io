@@ -114,8 +114,6 @@
 					if (!response || response.error) {
 						deferred.reject('Error occured');
 					} else {
-						debugger;
-
 						self.user.score = score;
 						deferred.resolve(response);
 					}

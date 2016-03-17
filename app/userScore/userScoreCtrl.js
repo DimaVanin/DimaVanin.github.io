@@ -12,14 +12,14 @@
 
 		init();
 
-		function setScores() {
-			userService.setScores(vm.scores).then(function(){
-				vm.scores = 0;
-			});
-		}
-
 		function init() {
 			vm.user = userService.user;
+		}
+
+		function setScores() {
+			userService.setScores(vm.scores).then(function () {
+				vm.scores = 0;
+			});
 		}
 	}
 })();
