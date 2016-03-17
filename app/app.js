@@ -16,13 +16,13 @@
 				templateUrl: "app/userInfo/userInfoTpl.html",
 				controller: "userInfoCtrl",
 				controllerAs: "userInfoCtrl",
-				resolve: {
-					userInfo: ['userService', function(userService){
-						return userService.getUserInfo().then(function (response) {
-							userService.user = response;
-						});
-					}]
-				}
+				//resolve: {
+				//	userInfo: ['userService', function(userService){
+				//		return userService.getUserInfo().then(function (response) {
+				//			userService.user = response;
+				//		});
+				//	}]
+				//}
 			})
 			.state('userFriends', {
 				url: "/list",
