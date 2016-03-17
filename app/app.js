@@ -2,8 +2,41 @@
 	'use strict';
 	angular.module('app', ['ui.router']);
 
-	angular.module('app').config(['$stateProvider', '$urlRouterProvider',
-		function ($stateProvider, $urlRouterProvider) {
+	//angular.module('app').config(['$stateProvider', '$urlRouterProvider',
+	//	function ($stateProvider, $urlRouterProvider) {
+	//
+	//	$urlRouterProvider.otherwise("/loginFB");
+	//
+	//	$stateProvider
+	//		.state('loginFB', {
+	//			url: "/loginFB",
+	//			templateUrl: "app/login/login.html"
+	//		})
+	//		.state('userInfo', {
+	//			url: "/userInfo",
+	//			templateUrl: "app/userInfo/userInfoTpl.html",
+	//			controller: "userInfoCtrl",
+	//			controllerAs: "userInfoCtrl",
+	//			//resolve: {
+	//			//	userInfo: ['userService', function(userService){
+	//			//		return userService.getUserInfo().then(function (response) {
+	//			//			userService.user = response;
+	//			//		});
+	//			//	}]
+	//			//}
+	//		})
+	//		.state('userScore', {
+	//			url: "/userScore",
+	//			templateUrl: "app/userScore/userScoreTpl.html"
+	//		})
+	//		.state('userFriends', {
+	//			url: "/list",
+	//			templateUrl: "app/userFriends/userFriendsTpl.html"
+	//		});
+	//
+	//}]);
+
+	angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/loginFB");
 
 		$stateProvider
@@ -24,15 +57,16 @@
 				//	}]
 				//}
 			})
-			.state('userFriends', {
-				url: "/list",
-				templateUrl: "app/userFriends/userFriendsTpl.html"
-			})
 			.state('userScore', {
 				url: "/userScore",
 				templateUrl: "app/userScore/userScoreTpl.html"
+			})
+			.state('userFriends', {
+				url: "/list",
+				templateUrl: "app/userFriends/userFriendsTpl.html"
 			});
-	}]);
+
+	});
 
 	angular.module('app').run(['$state', function ($state) {
 
