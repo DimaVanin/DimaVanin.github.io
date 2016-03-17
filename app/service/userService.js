@@ -22,7 +22,7 @@
 					me: me(),
 					picture: myPicture(),
 					score: getScore('me'),
-					//friends: myFriedns()
+					friends: myFriedns()
 				}).then(function (response) {
 					var info = {
 						id: response.me.id,
@@ -74,19 +74,20 @@
 
 			var friends = [];
 
-			FB.api('/me/friends', function (response) {
-				if (!response || response.error) {
-					deferred.reject('Error occured');
-				} else {
-					deferred.resolve(response);
+			FB.api('/me/friends', {'fields': 'id,scores'},
+				function (response) {
+					if (!response || response.error) {
+						deferred.reject('Error occured');
+					} else {
+						deferred.resolve(response);
 
-					response.data.forEach(function (friend, i) {
+						response.data.forEach(function (friend, i) {
 
-						if (i < 10) friends.push(friend);
+							if (i < 10) friends.push(friend);
 
-					});
-				}
-			});
+						});
+					}
+				});
 
 			return deferred.promise;
 		}
@@ -98,7 +99,7 @@
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
-					deferred.resolve(response.data[0]? response.data[0].score || 0 : 0);
+					deferred.resolve(response.data[0] ? response.data[0].score || 0 : 0);
 				}
 			});
 
