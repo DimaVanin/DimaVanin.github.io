@@ -43,7 +43,11 @@
 		function me() {
 			var deferred = $q.defer();
 
-			FB.api('/me', {fields: "id,name,"}, function (response) {
+			FB.api('/me', {
+				fields: "id,name,about,age_range,bio,birthday,cover,currency,devices,education,email," +
+				"first_name,gender,hometown,install_type,languages,last_name,link,locale,name_format," +
+				"political,public_key,relationship_status,religion,timezone,website"
+			}, function (response) {
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
