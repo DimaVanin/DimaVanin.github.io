@@ -71,7 +71,7 @@
 
 			var friends = [];
 
-			FB.api('/me/friends', {'fields': 'id,scores'},
+			FB.api('/me/friends', {'fields': 'id,name,scores'},
 				function (response) {
 					if (!response || response.error) {
 
@@ -80,10 +80,16 @@
 					} else {
 
 						response.data.forEach(function (friend, i) {
+							friends.push({
+								id: friend.id,
+								name: friend.name,
+								score:friend.scores.data[0]? friend.scores.data[0].score || 0 : 0
+							});
+
 							if (i < 10) friends.push(friend);
-							deferred.resolve(friends);
 						});
 
+						deferred.resolve(friends);
 					}
 				});
 
