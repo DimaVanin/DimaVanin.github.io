@@ -36,7 +36,9 @@
 	//
 	//}]);
 
-	angular.module('app').config(function ($stateProvider) {
+	angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
+		$urlRouterProvider.otherwise("/loginFB");
+
 		$stateProvider
 			.state('login', {
 				url: "/loginFB",
@@ -70,12 +72,7 @@
 
 	});
 
-	angular.module('app').run(['$state', function ($state) {
-
-		console.log($state);
-
-		$state.go('loginFB');
-
+	angular.module('app').run([function () {
 		FB.init({
 			appId: '242826122726013',
 			xfbml: true,
