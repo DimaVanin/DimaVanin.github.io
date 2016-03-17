@@ -2,26 +2,17 @@
 	'use strict';
 	angular
 		.module('app')
-		.factory('mainPageService', ['$http', '$q', mainPageService]);
+		.factory('userService', ['$http', '$q', userService]);
 
-	function mainPageService($http, $q) {
+	function userService($http, $q) {
 
 		return {
-			fbLogin: fbLogin,
-			userInfo: userInfo,
+			getUserInfo: getUserInfo,
 			setScore: setScore
 		};
 
-		function fbLogin() {
-			var deferred = $q.defer();
-			FB.login(function (response) {
-				if (!response || response.error) {
-					deferred.reject('Error occured');
-				} else {
-					deferred.resolve(response);
-				}
-			}, {scope: 'publish_actions'});
-			return deferred.promise;
+		function getUserInfo(){
+			return true;
 		}
 
 		function userInfo() {
