@@ -10,10 +10,13 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="form-horizontal">
 				<div data-ng-repeat="(key, value) in userInfoCtrl.user" class="form-group">
-					<div class="col-md-6 col-sm-6 col-xs-6 control-label">{{key}}:</div>
-					<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="col-md-4 col-sm-4 col-xs-6 control-label">{{key}}:</div>
+					<div class="col-md-4 col-sm-6 col-xs-6">
 						<input class="form-control" type="text" disabled data-ng-model="value">
 					</div>
+                    <div class="col-md-4 col-sm-2 hidden-xs">
+
+                    </div>
 					<div class="clearfix"></div>
 				</div>
 			</div>
