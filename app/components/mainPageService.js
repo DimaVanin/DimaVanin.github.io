@@ -2,9 +2,9 @@
 	'use strict';
 	angular
 		.module('app')
-		.factory('mainPageService', ['$q', mainPageService]);
+		.factory('mainPageService', ['$q','userService', mainPageService]);
 
-	function mainPageService($q) {
+	function mainPageService($q, userService) {
 		return {
 			fbLogin: fbLogin,
 			fbLogout: fbLogout
@@ -31,6 +31,7 @@
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
+					userService.user = {};
 					deferred.resolve(response);
 				}
 			});
