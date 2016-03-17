@@ -8,11 +8,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 title">User Id:</div>
-            <div class="col-md-6 col-sm-6 col-xs-6">{{userInfoCtrl.user.id}}</div>
-            <div class="clearfix"></div>
-            <div class="col-md-6 col-sm-6 col-xs-6 title">User Name:</div>
-            <div class="col-md-6 col-sm-6 col-xs-6 ">{{userInfoCtrl.user.name}}</div>
+						<div data-ng-repeat="(key, value) in userInfoCtrl.user">
+							<div class="col-md-6 col-sm-6 col-xs-6 title">{{key}}:</div>
+							<div class="col-md-6 col-sm-6 col-xs-6">{{value}}</div>
+							<div class="clearfix"></div>
+						</div>
+
+            <!--<div class="col-md-6 col-sm-6 col-xs-6 title">User Id:</div>-->
+            <!--<div class="col-md-6 col-sm-6 col-xs-6">{{userInfoCtrl.user.id}}</div>-->
+            <!--<div class="clearfix"></div>-->
+            <!--<div class="col-md-6 col-sm-6 col-xs-6 title">User Name:</div>-->
+            <!--<div class="col-md-6 col-sm-6 col-xs-6 ">{{userInfoCtrl.user.name}}</div>-->
         </div>
     </div>
 </section>
