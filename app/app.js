@@ -52,6 +52,8 @@
 			.state('leaderboard', {
 				url: "/leaderboard",
 				templateUrl: "app/userFriends/userFriendsTpl.html",
+				controller: "leaderboardCtrl",
+				controllerAs: "leaderboardCtrl",
 				resolve: {
 					userInfo: ['userService', function (userService) {
 						return userService.getUserInfo().then(function (response) {
