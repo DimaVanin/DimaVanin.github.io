@@ -2,19 +2,15 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('leaderboardCtrl', ['userService', leaderboardCtrl]);
+		.controller('leaderboardCtrl', ['userService','leaderboard', leaderboardCtrl]);
 
-	function leaderboardCtrl(userService) {
+	function leaderboardCtrl(userService,leaderboard) {
 		var vm = this;
 
 		init();
 
 		function init() {
-			vm.user = userService.user;
-			vm.list = [];
-			vm.list.push(vm.user);
-			vm.list.push(vm.user.friends);
-			console.log(vm.list);
+			vm.leaderboard = leaderboard;
 		}
 	}
 })();

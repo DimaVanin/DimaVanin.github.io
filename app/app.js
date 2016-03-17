@@ -55,10 +55,8 @@
 				controller: "leaderboardCtrl",
 				controllerAs: "leaderboardCtrl",
 				resolve: {
-					userInfo: ['userService', function (userService) {
-						return userService.getUserInfo().then(function (response) {
-							userService.user = response;
-						});
+					leaderboard: ['userService', function (userService) {
+						return userService.getLeaderboard();
 					}]
 				}
 			});

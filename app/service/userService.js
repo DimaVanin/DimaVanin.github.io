@@ -9,8 +9,23 @@
 		return {
 			user: {},
 			getUserInfo: getUserInfo,
+			getLeaderboard: getLeaderboard,
 			setScores: setScores
 		};
+
+		function getLeaderboard() {
+			var deferred = $q.defer();
+
+			FB.api('/242826122726013/scores', {fields: 'id,name,photo'}, function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					deferred.resolve(response);
+				}
+			});
+
+			return deferred.promise;
+		}
 
 		function getUserInfo() {
 			var deferred = $q.defer();
