@@ -10,7 +10,7 @@
 				url: "/loginFB",
 				templateUrl: "app/login/login.html"
 			})
-			.state('info', {
+			.state('userInfo', {
 				url: "/userInfo",
 				templateUrl: "app/userInfo/userInfoTpl.html",
 				controller: "userInfoCtrl",
