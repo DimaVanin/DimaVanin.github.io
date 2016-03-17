@@ -25,7 +25,17 @@
 		}
 
 		function fbLogout() {
+			var deferred = $q.defer();
 
+			FB.logout(function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					deferred.resolve(response);
+				}
+			});
+
+			return deferred.promise;
 		}
 	}
 })();

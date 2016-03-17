@@ -9,7 +9,7 @@
 
 		vm.isAuthorised = false;
 		vm.fbLogin = fbLogin;
-
+		vm.fbLogout = fbLogout;
 
 		init();
 
@@ -27,8 +27,15 @@
 
 		function fbLogin() {
 			mainPageService.fbLogin().then(function () {
-				vm.showNavigation = true;
-				$state.href = 'userInfo';
+				vm.isAuthorised = true;
+				$state.go('userInfo');
+			});
+		}
+
+		function fbLogout() {
+			mainPageService.fbLogout().then(function () {
+				vm.isAuthorised = false;
+				$state.go('empty');
 			});
 		}
 	}
