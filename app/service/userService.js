@@ -43,7 +43,7 @@
 		function me() {
 			var deferred = $q.defer();
 
-			FB.api('/me', function (response) {
+			FB.api('/me', {fields: "id,name,"}, function (response) {
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
