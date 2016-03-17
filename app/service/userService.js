@@ -65,7 +65,6 @@
 			return deferred.promise;
 		}
 
-
 		function myFriedns() {
 			var deferred = $q.defer();
 
@@ -74,15 +73,16 @@
 			FB.api('/me/friends', {'fields': 'id,scores'},
 				function (response) {
 					if (!response || response.error) {
+
 						deferred.reject('Error occured');
+
 					} else {
-						deferred.resolve(response);
 
 						response.data.forEach(function (friend, i) {
-
 							if (i < 10) friends.push(friend);
-
+							deferred.resolve(friends);
 						});
+
 					}
 				});
 
