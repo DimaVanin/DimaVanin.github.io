@@ -13,6 +13,10 @@ header {
   left: 0;
 }
 
+body > .container {
+  padding-top: 100px;
+}
+
 .fb_login {
   margin-top: 50px;
   height: 200px;
