@@ -7,34 +7,35 @@
 	function userService($http, $q) {
 
 		return {
+			user: {},
 			getUserInfo: getUserInfo,
 			setScore: setScore
 		};
 
-		function getUserInfo(){
-			return true;
-		}
-
-		function userInfo() {
+		function getUserInfo() {
 			var deferred = $q.defer();
 
-			$q.all({
-				me: me(),
-				picture: myPicture(),
-				score: getScore('me'),
-				friends: myFriedns()
-			}).then(function (response) {
-				var info = {
-					id: response.me.id,
-					name: response.me.name,
-					photoUrl: response.picture.data.url,
-					score: response.score
-				};
+			if (this.user.id) {
+				deferred.resolve(this.user);
+			} else {
+				$q.all({
+					me: me(),
+					//picture: myPicture(),
+					score: getScore('me'),
+					//friends: myFriedns()
+				}).then(function (response) {
+					var info = {
+						id: response.me.id,
+						name: response.me.name,
+						//photoUrl: response.picture.data.url,
+						score: response.score
+					};
 
-				console.log(info);
+					console.log(info);
 
-				deferred.resolve(info);
-			});
+					deferred.resolve(info);
+				});
+			}
 
 			return deferred.promise;
 		}
@@ -97,7 +98,7 @@
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
-					deferred.resolve(response);
+					deferred.resolve(response.data[0]? response.data[0].score || 0 : 0);
 				}
 			});
 
