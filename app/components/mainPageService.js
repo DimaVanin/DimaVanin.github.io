@@ -12,6 +12,7 @@
 
 		function fbLogin() {
 			var deferred = $q.defer();
+
 			FB.login(function (response) {
 				if (!response || response.error) {
 					deferred.reject('Error occured');
@@ -19,6 +20,7 @@
 					deferred.resolve(response);
 				}
 			}, {scope: 'publish_actions'});
+
 			return deferred.promise;
 		}
 

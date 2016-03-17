@@ -26,6 +26,7 @@
 
 		function fbLogin() {
 			mainPageService.fbLogin().then(function () {
+				vm.showNavigation = true;
 				$state.go('userInfo');
 			});
 		}
