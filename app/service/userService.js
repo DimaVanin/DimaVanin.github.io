@@ -2,36 +2,25 @@
 	'use strict';
 	angular
 		.module('app')
-		.factory('userService', ['$http', '$q', userService]);
+		.factory('mainPageService', ['$http', '$q', mainPageService]);
 
-	function userService($http, $q) {
+	function mainPageService($http, $q) {
+
 		return {
-			user: {},
+			fbLogin: fbLogin,
 			userInfo: userInfo,
-			getUserInfo: getUserInfo
+			setScore: setScore
 		};
 
-		function getUserInfo() {
+		function fbLogin() {
 			var deferred = $q.defer();
-
-			if (this.user.id) {
-				deferred.resolve();
-			} else {
-				$q.all({
-					me: me(),
-					picture: myPicture(),
-					score: getScore('me'),
-					friends: myFriedns()
-				}).then(function (response) {
-					deferred.resolve({
-						id: response.me.id,
-						name: response.me.name,
-						photoUrl: response.picture.data.url,
-						score: response.score
-					});
-				});
-			}
-
+			FB.login(function (response) {
+				if (!response || response.error) {
+					deferred.reject('Error occured');
+				} else {
+					deferred.resolve(response);
+				}
+			}, {scope: 'publish_actions'});
 			return deferred.promise;
 		}
 
@@ -51,6 +40,7 @@
 					score: response.score
 				};
 
+				console.log(info);
 
 				deferred.resolve(info);
 			});
@@ -86,6 +76,7 @@
 			return deferred.promise;
 		}
 
+
 		function myFriedns() {
 			var deferred = $q.defer();
 
@@ -99,9 +90,7 @@
 
 					response.data.forEach(function (friend, i) {
 
-
 						if (i < 10) friends.push(friend);
-
 
 					});
 				}
@@ -117,7 +106,7 @@
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
-					deferred.resolve(response.data[0] ? response.data[0].score || 0 : 0);
+					deferred.resolve(response);
 				}
 			});
 
