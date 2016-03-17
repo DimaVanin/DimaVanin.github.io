@@ -27,7 +27,7 @@
 					var info = {
 						id: response.me.id,
 						name: response.me.name,
-						//photoUrl: response.picture.data.url,
+						photoUrl: response.picture.data.url,
 						score: response.score
 					};
 
