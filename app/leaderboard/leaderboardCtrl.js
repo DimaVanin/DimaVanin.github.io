@@ -12,7 +12,7 @@
 		function init() {
 			vm.user = userService.user;
 			vm.list = [];
-			vm.list = push(vm.user);
+			vm.list.push(vm.user);
 			vm.list.push(vm.user.friends);
 			console.log(vm.list);
 		}
