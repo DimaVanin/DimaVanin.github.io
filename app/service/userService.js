@@ -37,13 +37,13 @@
 					me: me(),
 					picture: myPicture(),
 					score: getScore('me'),
-					friends: myFriedns()
+					//friends: myFriedns()
 				}).then(function (response) {
 					deferred.resolve(
 						angular.extend({}, response.me, {
 							photoUrl: response.picture.data.url,
 							score: response.score,
-							friends: response.friends
+							//friends: response.friends
 						}));
 				});
 			}
