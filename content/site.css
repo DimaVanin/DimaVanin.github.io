@@ -33,6 +33,17 @@ header {
   text-align: right;
 }
 
+.user_info .value {
+  max-width: 140px;
+  text-overflow: clip;
+}
+
+.user_info .value,
+.user_info .title {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
 .img_container {
   display: flex;
   align-items: center;
