@@ -45,7 +45,6 @@
 			version: 'v2.5'
 		});
 
-
 		$rootScope.$on('$stateChangeStart', function (event) {
 			event.preventDefault();
 			$state.go('login');
