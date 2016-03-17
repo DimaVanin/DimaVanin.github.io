@@ -25,7 +25,7 @@
 					friends: myFriedns()
 				}).then(function (response) {
 					deferred.resolve(
-						angular.extend({}, me, {
+						angular.extend({}, response.me, {
 							photoUrl: response.picture.data.url,
 							score: response.score
 						}));
@@ -39,7 +39,7 @@
 			var deferred = $q.defer();
 
 			FB.api('/me', {
-				fields: "id,name,first_name,gender,last_name,link,locale,relationship_status,timezone,score"
+				fields: "id,name,first_name,gender,last_name,link,locale,relationship_status,timezone"
 			}, function (response) {
 				if (!response || response.error) {
 					deferred.reject('Error occured');
