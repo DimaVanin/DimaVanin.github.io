@@ -59,6 +59,7 @@
 					}]
 				}
 			});
+
 	}]);
 
 	angular.module('app').run(['userService',function () {
