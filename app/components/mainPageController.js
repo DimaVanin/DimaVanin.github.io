@@ -2,9 +2,9 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('mainPageController', ['mainPageService', '$state', mainPageController]);
+		.controller('mainPageController', ['mainPageService', '$location', mainPageController]);
 
-	function mainPageController(mainPageService, $state) {
+	function mainPageController(mainPageService, $location) {
 		var vm = this;
 
 		vm.showNavigation = false;
@@ -27,7 +27,7 @@
 		function fbLogin() {
 			mainPageService.fbLogin().then(function () {
 				vm.showNavigation = true;
-				$state.go('userInfo');
+				$location.href = 'userInfo';
 			});
 		}
 	}
