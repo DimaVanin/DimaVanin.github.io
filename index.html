@@ -29,61 +29,55 @@
 	<base href="/">
 </head>
 <body data-ng-controller="mainPageController as mainCtrl">
-<header>
-	FB Api Demo
-</header>
-<section>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-5 col-sm-4 col-xs-3"></div>
-			<div class="col-md-2 col-sm-4 col-xs-6">
-				<button class="btn btn-primary btn-full"
-								data-ng-click="mainCtrl.fbLogin()"
-								data-ng-show="!mainCtrl.isAuthorised">
-					FB Login
-				</button>
-				<button class="btn btn-primary btn-full"
-								data-ng-click="mainCtrl.fbLogout()"
-								data-ng-show="mainCtrl.isAuthorised">
-					FB Logout
-				</button>
+<div class="container">
+	<header>
+		FB Api Demo
+	</header>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-sm-4 col-xs-3"></div>
+				<div class="col-md-2 col-sm-4 col-xs-6">
+					<button class="btn btn-primary btn-full"
+									data-ng-click="mainCtrl.fbLogin()"
+									data-ng-show="!mainCtrl.isAuthorised">
+						FB Login
+					</button>
+					<button class="btn btn-primary btn-full"
+									data-ng-click="mainCtrl.fbLogout()"
+									data-ng-show="mainCtrl.isAuthorised">
+						FB Logout
+					</button>
+				</div>
+				<div class="col-md-5 col-sm-4 col-xs-3"></div>
 			</div>
-			<div class="col-md-5 col-sm-4 col-xs-3"></div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<section class="navigation" data-ng-show="mainCtrl.isAuthorised">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-			<div class="col-md-2 col-sm-3 col-xs-12">
-				<a class="btn btn-default btn-full" data-ui-sref="userInfo">User info</a>
+	<section class="navigation" data-ng-show="mainCtrl.isAuthorised">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 hidden-sm hidden-xs"></div>
+				<div class="col-md-2 col-sm-3 col-xs-12">
+					<a class="btn btn-default btn-full" data-ui-sref="userInfo">User info</a>
+				</div>
+				<div class="col-md-2 col-sm-3 col-xs-12">
+					<a class="btn btn-default btn-full" data-ui-sref="userScore">User Score</a>
+				</div>
+				<div class="col-md-2 col-sm-3 col-xs-12">
+					<a class="btn btn-default btn-full" data-ui-sref="userFriends">User Friends</a>
+				</div>
+				<div class="col-md-2 col-sm-3 col-xs-12">
+					<a class="btn btn-default btn-full" data-ui-sref="leaderboard">Leaderboard</a>
+				</div>
+				<div class="col-md-2 hidden-sm hidden-xs"></div>
 			</div>
-			<div class="col-md-2 col-sm-3 col-xs-12">
-				<a class="btn btn-default btn-full" data-ui-sref="userScore">User Score</a>
-			</div>
-			<div class="col-md-2 col-sm-3 col-xs-12">
-				<a class="btn btn-default btn-full" data-ui-sref="userFriends">User Friends</a>
-			</div>
-			<div class="col-md-2 col-sm-3 col-xs-12">
-				<a class="btn btn-default btn-full" data-ui-sref="leaderboard">Leaderboard</a>
-			</div>
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!--<div data-ng-controller="userInfoCtrl as userInfoCtrl">-->
-<!--{{userInfoCtrl.user}}-->
-<!--<input type="text" class="form-control" data-ng-model="userInfoCtrl.user.name">-->
-<!--</div>-->
+	<div data-ng-show="mainCtrl.isAuthorised" data-ui-view></div>
+</div>
 
-<!--<div data-ng-controller="userScoreCtrl as userScoreCtrl">-->
-<!--{{userScoreCtrl.user}}-->
-<!--<input type="text" class="form-control" data-ng-model="userScoreCtrl.user.name">-->
-<!--</div>-->
-
-<div data-ng-show="mainCtrl.isAuthorised" data-ui-view></div>
 </body>
 </html>
