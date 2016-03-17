@@ -1,8 +1,14 @@
 <section class="main_section user_info">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-6 title">User Score:</div>
-			<div class="col-md-6 col-sm-6 col-xs-6">{{userScoreCtrl.user.score}}</div>
+			<div class="form-horizontal">
+				<div class="form-group">
+					<div class="col-md-6 col-sm-6 col-xs-6 control-label">User Score:</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<input class="form-control" type="text" disabled data-ng-model="userScoreCtrl.user.score">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6">{{userScoreCtrl.user.score}}</div>
+			</div>
 
 			<div class="col-md-12 offset"></div>
 
