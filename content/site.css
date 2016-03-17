@@ -16,6 +16,7 @@ header {
 body > .container {
   padding-top: 100px;
   box-shadow: 0 0 5px rgba(0,0,0,.3);
+  min-height: 100vh;
 }
 
 .fb_login {
