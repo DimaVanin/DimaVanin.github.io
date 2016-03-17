@@ -83,10 +83,8 @@
 							friends.push({
 								id: friend.id,
 								name: friend.name,
-								score:friend.scores.data[0]? friend.scores.data[0].score || 0 : 0
+								score: friend.scores.data[0] ? friend.scores.data[0].score || 0 : 0
 							});
-
-							if (i < 10) friends.push(friend);
 						});
 
 						deferred.resolve(friends);
@@ -117,7 +115,7 @@
 
 			FB.api('/me/scores', 'POST', {
 					'score': score
-				}, function(response){
+				}, function (response) {
 					if (!response || response.error) {
 						deferred.reject('Error occured');
 					} else {
