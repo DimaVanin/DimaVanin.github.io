@@ -2,6 +2,10 @@ body {
   background: center;
 }
 
+section {
+  margin-top: 25px;
+}
+
 header {
   padding: 25px;
   font-size: 25px;
