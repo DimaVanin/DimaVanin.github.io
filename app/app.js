@@ -27,6 +27,8 @@
 			.state('userScore', {
 				url: "/userScore",
 				templateUrl: "app/userScore/userScoreTpl.html",
+				controller: "userScoreCtrl",
+				controllerAs: "userScoreCtrl",
 				resolve: {
 					userInfo: ['userService', function (userService) {
 						return userService.getUserInfo().then(function (response) {
