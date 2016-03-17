@@ -36,33 +36,35 @@
 	//
 	//}]);
 
-	angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise("/loginFB");
-
+	angular.module('app').config(function ($stateProvider) {
 		$stateProvider
-			.state('loginFB', {
+			.state('login', {
 				url: "/loginFB",
 				templateUrl: "app/login/login.html"
 			})
-			.state('userInfo', {
+			.state('info', {
 				url: "/userInfo",
 				templateUrl: "app/userInfo/userInfoTpl.html",
 				controller: "userInfoCtrl",
-				controllerAs: "userInfoCtrl",
-				//resolve: {
-				//	userInfo: ['userService', function(userService){
-				//		return userService.getUserInfo().then(function (response) {
-				//			userService.user = response;
-				//		});
-				//	}]
-				//}
+				controllerAs: "userInfoCtrl"/*,
+				resolve: {
+					userInfo: ['userService', function(userService){
+						return userService.getUserInfo().then(function (response) {
+							userService.user = response;
+						});
+					}]
+				}*/
 			})
-			.state('userScore', {
+			.state('score', {
 				url: "/userScore",
 				templateUrl: "app/userScore/userScoreTpl.html"
 			})
-			.state('userFriends', {
-				url: "/list",
+			.state('friends', {
+				url: "/userFriends",
+				templateUrl: "app/userFriends/userFriendsTpl.html"
+			})
+			.state('leaderboard', {
+				url: "/leaderboard",
 				templateUrl: "app/userFriends/userFriendsTpl.html"
 			});
 
