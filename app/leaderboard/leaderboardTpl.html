@@ -12,7 +12,7 @@
                 </thead>
                 <tbody>
                 <tr data-ng-repeat="item in leaderboardCtrl.leaderboard track by $index | orderBy '-score'"
-                    data-ng-class="{'active': item.user.id == leaderboardCtrl.user.id}">
+                    data-ng-class="{'success': item.user.id == leaderboardCtrl.user.id}">
                     <td>{{$index +1}}</td>
                     <td>{{item.user.name}}</td>
                     <td>{{item.user.id}}</td>
