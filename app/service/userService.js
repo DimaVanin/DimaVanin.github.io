@@ -24,16 +24,11 @@
 					score: getScore('me'),
 					friends: myFriedns()
 				}).then(function (response) {
-					var info = {
-						id: response.me.id,
-						name: response.me.name,
-						photoUrl: response.picture.data.url,
-						score: response.score
-					};
-
-					console.log(info);
-
-					deferred.resolve(info);
+					deferred.resolve(
+						angular.extend({}, me, {
+							photoUrl: response.picture.data.url,
+							score: response.score
+						}));
 				});
 			}
 
@@ -44,9 +39,7 @@
 			var deferred = $q.defer();
 
 			FB.api('/me', {
-				fields: "id,name,about,age_range,bio,birthday,cover,currency,devices,education,email," +
-				"first_name,gender,hometown,install_type,languages,last_name,link,locale,name_format," +
-				"political,public_key,relationship_status,religion,timezone,website"
+				fields: "id,name,first_name,gender,last_name,link,locale,relationship_status,timezone,score"
 			}, function (response) {
 				if (!response || response.error) {
 					deferred.reject('Error occured');
