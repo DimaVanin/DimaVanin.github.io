@@ -16,7 +16,7 @@
 		function getLeaderboard() {
 			var deferred = $q.defer();
 
-			FB.api('/242826122726013/scores', {fields: 'picture'}, function (response) {
+			FB.api('/242826122726013/scores', function (response) {
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
