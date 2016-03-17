@@ -20,7 +20,7 @@
 			} else {
 				$q.all({
 					me: me(),
-					//picture: myPicture(),
+					picture: myPicture(),
 					score: getScore('me'),
 					//friends: myFriedns()
 				}).then(function (response) {

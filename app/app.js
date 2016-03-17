@@ -26,28 +26,44 @@
 			})
 			.state('userScore', {
 				url: "/userScore",
-				templateUrl: "app/userScore/userScoreTpl.html"
+				templateUrl: "app/userScore/userScoreTpl.html",
+				resolve: {
+					userInfo: ['userService', function (userService) {
+						return userService.getUserInfo().then(function (response) {
+							userService.user = response;
+						});
+					}]
+				}
 			})
 			.state('userFriends', {
 				url: "/userFriends",
-				templateUrl: "app/userFriends/userFriendsTpl.html"
+				templateUrl: "app/userFriends/userFriendsTpl.html",
+				resolve: {
+					userInfo: ['userService', function (userService) {
+						return userService.getUserInfo().then(function (response) {
+							userService.user = response;
+						});
+					}]
+				}
 			})
 			.state('leaderboard', {
 				url: "/leaderboard",
-				templateUrl: "app/userFriends/userFriendsTpl.html"
+				templateUrl: "app/userFriends/userFriendsTpl.html",
+				resolve: {
+					userInfo: ['userService', function (userService) {
+						return userService.getUserInfo().then(function (response) {
+							userService.user = response;
+						});
+					}]
+				}
 			});
 	}]);
 
-	angular.module('app').run(['$rootScope', '$state', function ($rootScope, $state) {
+	angular.module('app').run(['userService',function () {
 		FB.init({
 			appId: '242826122726013',
 			xfbml: true,
 			version: 'v2.5'
-		});
-
-		$rootScope.$on('$stateChangeStart', function (event) {
-			//event.preventDefault();
-			//$state.go('login');
 		});
 	}]);
 })();
