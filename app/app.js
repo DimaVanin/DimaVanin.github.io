@@ -2,7 +2,8 @@
 	'use strict';
 	angular.module('app', ['ui.router']);
 
-	angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
+	angular.module('app').config(['$stateProvider', '$urlRouterProvider',
+		function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/loginFB");
 
 		$stateProvider
@@ -16,7 +17,7 @@
 				controller: "userInfoCtrl",
 				controllerAs: "userInfoCtrl",
 				resolve: {
-					userInfo: ['userService', function(userService){
+					userInfo: ['userService', function (userService) {
 						return userService.getUserInfo().then(function (response) {
 							userService.user = response;
 						});
@@ -35,14 +36,18 @@
 				url: "/leaderboard",
 				templateUrl: "app/userFriends/userFriendsTpl.html"
 			});
+	}]);
 
-	});
-
-	angular.module('app').run([function () {
+	angular.module('app').run(['$rootScope', '$state', function ($rootScope, $state) {
 		FB.init({
 			appId: '242826122726013',
 			xfbml: true,
 			version: 'v2.5'
+		});
+
+		$rootScope.$on('$stateChangeStart', function (event) {
+			event.preventDefault();
+			$state.go('login');
 		});
 	}]);
 })();
