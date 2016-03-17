@@ -51,7 +51,7 @@
 			})
 			.state('leaderboard', {
 				url: "/leaderboard",
-				templateUrl: "app/userFriends/userFriendsTpl.html",
+				templateUrl: "app/leaderboard/leaderboardTpl.html",
 				controller: "leaderboardCtrl",
 				controllerAs: "leaderboardCtrl",
 				resolve: {
