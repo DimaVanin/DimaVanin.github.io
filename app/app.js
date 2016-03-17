@@ -4,11 +4,11 @@
 
 	angular.module('app').config(['$stateProvider', '$urlRouterProvider',
 		function ($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise("/loginFB");
+		$urlRouterProvider.otherwise("/");
 
 		$stateProvider
-			.state('loginFB', {
-				url: "/loginFB",
+			.state('empty', {
+				url: "/",
 				templateUrl: "app/login/login.html"
 			})
 			.state('userInfo', {
