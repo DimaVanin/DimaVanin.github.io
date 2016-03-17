@@ -20,7 +20,7 @@
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {
-					deferred.resolve(response);
+					deferred.resolve(response.data);
 				}
 			});
 

@@ -12,6 +12,8 @@
 		function init() {
 			vm.user = userService.user
 			vm.leaderboard = leaderboard;
+
+			console.log()
 		}
 	}
 })();
