@@ -2,7 +2,7 @@
 	'use strict';
 	angular
 		.module('app')
-		.factory('facebookService', ['$window','$q', 'appConfig', facebookService]);
+		.factory('facebookService', ['$window', '$q', 'appConfig', facebookService]);
 
 	function facebookService($window, $q, config) {
 		var facebook = $window.FB;
@@ -23,21 +23,25 @@
 				version: 'v2.6'
 			});
 
-			setTimeout(function(){
+			setTimeout(function () {
 				defer.resolve();
-			},1000);
+			}, 100);
 
 			return defer.promise;
 		}
 
 		function getLoginStatus() {
-			var deferred = $q.defer();
+			var defer = $q.defer();
 
-			facebook.getLoginStatus(function(response){
+			facebook.getLoginStatus(function (response) {
 				console.log(response)
 			});
 
-			return deferred.promise;
+			setTimeout(function () {
+				defer.resolve();
+			}, 100);
+
+			return defer.promise;
 		}
 
 		function login() {
