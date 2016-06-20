@@ -1,0 +1,29 @@
+.btn {
+  /*display: inline-block;*/
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn-facebook {
+  margin: 0 auto;
+  max-width: 250px;
+  background: #3b5998;
+  color: #fff;
+  font-size: 1.3em;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  transition: all ease-out .2s;
+}
+
+.btn-facebook:hover {
+  background: #2d4b98;
+}
+
+.btn-facebook i{
+  font-size: 1.6em;
+}

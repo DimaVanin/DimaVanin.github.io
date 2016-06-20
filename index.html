@@ -5,73 +5,83 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>FB Api Demo</title>
 
-	<!-- libs -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-	<script src="//connect.facebook.net/en_US/sdk.js"></script>
-	<script src="libs/angular-ui-router.min.js"></script>
-	<script src="libs/moment.min.js"></script>
+	<!-- hot css for loading-->
+	<style>
+		body:not(.loaded) .loader {
+			z-index: 2;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			background: #ccc;
 
-	<!-- script -->
-	<script src="app/app.js"></script>
-	<script src="app/components/mainPageController.js"></script>
-	<script src="app/components/mainPageService.js"></script>
-	<script src="app/service/userService.js"></script>
-	<script src="app/userInfo/userInfoCtrl.js"></script>
-    <script src="app/userScore/userScoreCtrl.js"></script>
-    <script src="app/leaderboard/leaderboardCtrl.js"></script>
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			font-size: 2em;
+			color: #ab113d;
+		}
+	</style>
 
-	<!-- css -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="content/site.css">
-
-	<base href="/">
 </head>
-<body data-ng-controller="mainPageController as mainCtrl">
-<header>
-	<h1>FB Api Demo</h1>
-</header>
-<div class="container">
-	<section>
-		<div class="row">
-			<div class="col-md-5 col-sm-4 col-xs-3"></div>
-			<div class="col-md-2 col-sm-4 col-xs-6">
-				<button class="btn btn-primary btn-full"
-								data-ng-click="mainCtrl.fbLogin()"
-								data-ng-show="!mainCtrl.isAuthorised">
-					FB Login
-				</button>
-				<button class="btn btn-primary btn-full"
-								data-ng-click="mainCtrl.fbLogout()"
-								data-ng-show="mainCtrl.isAuthorised">
-					FB Logout
-				</button>
-			</div>
-			<div class="col-md-5 col-sm-4 col-xs-3"></div>
-		</div>
-	</section>
+<body data-ng-controller="layoutController as layoutCtrl"
+			data-ng-class="{'loaded': layoutCtrl.loaded}">
 
-	<section class="navigation" data-ng-show="mainCtrl.isAuthorised">
-		<div class="row">
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-			<div class="col-md-2 col-sm-3 col-xs-12">
-				<a class="btn btn-default btn-full" data-ui-sref="userInfo">User info</a>
-			</div>
-			<div class="col-md-2 col-sm-3 col-xs-12">
-				<a class="btn btn-default btn-full" data-ui-sref="userScore">User Score</a>
-			</div>
-			<div class="col-md-2 col-sm-3 col-xs-12">
-				<a class="btn btn-default btn-full" data-ui-sref="userFriends">User Friends</a>
-			</div>
-			<div class="col-md-2 col-sm-3 col-xs-12">
-				<a class="btn btn-default btn-full" data-ui-sref="leaderboard">Leaderboard</a>
-			</div>
-			<div class="col-md-2 hidden-sm hidden-xs"></div>
-		</div>
-	</section>
-
-	<div data-ng-show="mainCtrl.isAuthorised" data-ui-view></div>
+<div class="loader">
+	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
 </div>
+
+<div class="main-container">
+	<header data-ng-if="layoutCtrl.isSigned()">
+		<div class="logo">
+			<img src="content/monterosa_logo.png">
+		</div>
+		<nav>
+			<ul>
+				<li data-ng-repeat="link in layoutCtrl.navigation">
+					<a title="{{link.sref}}"
+						 data-ui-sref="{{link.sref}}"
+						 data-ng-class="{'active': layoutCtrl.processClass(link.sref)}">
+						<i class="fa fa-{{link.fontClass}}" aria-hidden="true"></i>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<section>
+		<div ui-view></div>
+	</section>
+</div>
+
 </body>
+<!-- js libs -->
+<script type="text/javascript" src="libs/angular.min.js"></script>
+<script type="text/javascript" src="libs/angular-ui-router.min.js"></script>
+<script src="//connect.facebook.net/en_US/sdk.js"></script>
+<!--<script src="libs/moment.min.js"></script>-->
+
+<!-- script -->
+<script type="text/javascript" src="app/app.js"></script>
+
+<!-- config -->
+<script type="text/javascript" src="app/config/appConfig.js"></script>
+
+<!-- controllers -->
+<script type="text/javascript" src="app/layout/layoutController.js"></script>
+<script type="text/javascript" src="app/login/loginController.js"></script>
+
+<!-- services -->
+<script type="text/javascript" src="app/services/facebookService.js"></script>
+
+
+<!-- css -->
+<link rel="stylesheet" href="styles/reset.css">
+<link rel="stylesheet" href="styles/layout.css">
+<link rel="stylesheet" href="styles/login.css">
+<link rel="stylesheet" href="styles/header.css">
+<link rel="stylesheet" href="styles/buttons.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
 </html>
