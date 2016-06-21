@@ -3,9 +3,9 @@
 
 	angular
 		.module('app')
-		.controller('layoutController', ['$state', 'facebookService','_', layoutController]);
+		.controller('layoutController', ['$state', '_', 'stateConfig', 'facebookService', 'navigationService', layoutController]);
 
-	function layoutController($state, facebookService, _) {
+	function layoutController($state, _, stateConfig, facebookService, navigationService) {
 		var vm = this;
 
 		/*scope variables*/
@@ -22,25 +22,21 @@
 
 		function init() {
 			//TODO: remove to service with dynamic sref(for video & event)
-			vm.navigation = [
-				{sref: 'login', fontClass: 'sign-in'},
-				{sref: 'user', fontClass: 'user'},
-				{sref: 'event', fontClass: 'cube'},
-				{sref: 'video', fontClass: 'video-camera'},
-				{sref: 'comments', fontClass: 'comments-o'},
-				{sref: 'reaction', fontClass: 'smile-o'},
-				{sref: 'logout', fontClass: 'sign-out'}];
+			vm.navigation = navigationService.navigation;
 
 			facebookService.init()
-				.then(getLoginStatus)
+				//.then(getLoginStatus)
+				//.catch(isUnauthorized)
 				.finally(hideLoading);
+		}
 
-			//getLoginStatus();
+		function isUnauthorized() {
+			$state.go(stateConfig.LOGIN);
 		}
 
 		function getLoginStatus() {
 			return facebookService.getLoginStatus()
-				.then(function(response) {
+				.then(function (response) {
 					console.log(response);
 				})
 		}
@@ -50,9 +46,9 @@
 		}
 
 		function hideNav() {
-			return false;
-			//var state =  $state.current.name;
-			//return state === 'login' || state === 'logout';
+			//return false;
+			var state = $state.current.name;
+			return state === 'login' || state === 'logout';
 		}
 
 		function hideLoading() {

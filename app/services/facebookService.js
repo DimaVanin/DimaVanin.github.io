@@ -32,17 +32,24 @@
 		}
 
 		function getLoginStatus() {
-			return api('getLoginStatus');
+			var defer = $q.defer();
+
+			api('getLoginStatus')
+				.then(function(response){
+					if (response.status === 'connected') {
+						defer.resolve();
+					}
+				})
+				.catch(defer.reject);
+			return defer.promise;
 		}
 
 		function login() {
 			var deferred = $q.defer();
 
 			facebook.login(function (response) {
-				console.log(response);
-
 				if (!response || response.error) {
-					deferred.reject('Error occured');
+					deferred.reject();
 				} else {
 					deferred.resolve(response);
 				}

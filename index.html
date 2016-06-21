@@ -40,7 +40,7 @@
 		<nav>
 			<ul>
 				<li data-ng-repeat="link in layoutCtrl.navigation">
-					<a title="{{link.sref}}"
+					<a title="{{link.title}}"
 						 data-ui-sref="{{link.sref}}"
 						 data-ng-class="{'active': layoutCtrl.processClass(link.sref)}">
 						<i class="fa fa-{{link.fontClass}}" aria-hidden="true"></i>
@@ -80,6 +80,7 @@
 
 <!-- services -->
 <script type="text/javascript" src="app/services/facebookService.js"></script>
+<script type="text/javascript" src="app/services/navigationService.js"></script>
 
 
 <!-- css -->
