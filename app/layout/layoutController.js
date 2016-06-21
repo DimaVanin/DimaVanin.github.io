@@ -32,10 +32,10 @@
 				{sref: 'logout', fontClass: 'sign-out'}];
 
 			facebookService.init()
-				//.then(getLoginStatus)
+				.then(getLoginStatus)
 				.finally(hideLoading);
 
-			getLoginStatus();
+			//getLoginStatus();
 		}
 
 		function getLoginStatus() {
@@ -51,8 +51,8 @@
 
 		function hideNav() {
 			return false;
-			var state =  $state.current.name;
-			return state === 'login' || state === 'logout';
+			//var state =  $state.current.name;
+			//return state === 'login' || state === 'logout';
 		}
 
 		function hideLoading() {

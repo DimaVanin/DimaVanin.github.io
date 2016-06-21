@@ -39,6 +39,8 @@
 			var deferred = $q.defer();
 
 			facebook.login(function (response) {
+				console.log(response);
+
 				if (!response || response.error) {
 					deferred.reject('Error occured');
 				} else {

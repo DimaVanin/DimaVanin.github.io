@@ -2,8 +2,6 @@
 	'use strict';
 	angular.module('app').config(['$stateProvider', '$urlRouterProvider', 'stateConfig',
 		function ($stateProvider, $urlRouterProvider, stateConfig) {
-			console.log(stateConfig);
-
 			$urlRouterProvider.otherwise("/login");
 
 			$stateProvider
@@ -38,9 +36,6 @@
 					templateUrl: './app/logout/logoutTpl.html',
 					controller: 'logoutController',
 					controllerAs: 'logoutCtrl'
-				})
-
-
+				});
 		}]);
-
 })();
