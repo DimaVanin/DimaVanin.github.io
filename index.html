@@ -33,7 +33,7 @@
 </div>
 
 <div class="main-container">
-	<header data-ng-if="layoutCtrl.isSigned()">
+	<header data-ng-if="!layoutCtrl.hideNav()">
 		<div class="logo">
 			<img src="content/monterosa_logo.png">
 		</div>
@@ -60,6 +60,7 @@
 <script type="text/javascript" src="libs/angular.min.js"></script>
 <script type="text/javascript" src="libs/angular-ui-router.min.js"></script>
 <script src="//connect.facebook.net/en_US/sdk.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
 <!--<script src="libs/moment.min.js"></script>-->
 
 <!-- script -->
@@ -67,10 +68,15 @@
 
 <!-- config -->
 <script type="text/javascript" src="app/config/appConfig.js"></script>
+<script type="text/javascript" src="app/config/stateConfig.js"></script>
+
+<!-- routing -->
+<script type="text/javascript" src="app/route.js"></script>
 
 <!-- controllers -->
 <script type="text/javascript" src="app/layout/layoutController.js"></script>
 <script type="text/javascript" src="app/login/loginController.js"></script>
+<script type="text/javascript" src="app/logout/logoutController.js"></script>
 
 <!-- services -->
 <script type="text/javascript" src="app/services/facebookService.js"></script>

@@ -1,22 +1,20 @@
 .btn {
   /*display: inline-block;*/
-  padding: 10px 15px;
-  font-size: 1em;
+  padding: 15px 25px;
+  font-size: 1.5em;
   border-radius: 2px;
   cursor: pointer;
 }
 
+.btn-default {
+  background: #ccc;
+  color: #fff;
+}
+
 .btn-facebook {
-  margin: 0 auto;
   max-width: 250px;
   background: #3b5998;
   color: #fff;
-  font-size: 1.3em;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
   transition: all ease-out .2s;
 }
 
@@ -24,6 +22,8 @@
   background: #2d4b98;
 }
 
-.btn-facebook i{
-  font-size: 1.6em;
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

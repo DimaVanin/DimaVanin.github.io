@@ -9,12 +9,6 @@
 
 		vm.loginWithFacebook = loginWithFacebook;
 
-		init();
-
-		function init() {
-
-		}
-
 		function loginWithFacebook() {
 			facebookService.login()
 				.then(successAuth)

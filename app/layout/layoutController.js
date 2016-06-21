@@ -3,9 +3,9 @@
 
 	angular
 		.module('app')
-		.controller('layoutController', ['$state', 'facebookService', layoutController]);
+		.controller('layoutController', ['$state', 'facebookService','_', layoutController]);
 
-	function layoutController($state, facebookService) {
+	function layoutController($state, facebookService, _) {
 		var vm = this;
 
 		/*scope variables*/
@@ -16,10 +16,12 @@
 
 		/*functions*/
 		vm.processClass = processClass;
-		vm.isSigned = isSigned;
+		vm.hideNav = hideNav;
+
 		init();
 
 		function init() {
+			//TODO: remove to service with dynamic sref(for video & event)
 			vm.navigation = [
 				{sref: 'login', fontClass: 'sign-in'},
 				{sref: 'user', fontClass: 'user'},
@@ -30,20 +32,27 @@
 				{sref: 'logout', fontClass: 'sign-out'}];
 
 			facebookService.init()
-				.then(getLoginStatus)
-				.then(hideLoading)
+				//.then(getLoginStatus)
+				.finally(hideLoading);
+
+			getLoginStatus();
 		}
 
 		function getLoginStatus() {
 			return facebookService.getLoginStatus()
+				.then(function(response) {
+					console.log(response);
+				})
 		}
 
 		function processClass(name) {
 			return name === $state.current.name;
 		}
 
-		function isSigned() {
-			return $state.current.name !== 'login'
+		function hideNav() {
+			return false;
+			var state =  $state.current.name;
+			return state === 'login' || state === 'logout';
 		}
 
 		function hideLoading() {
