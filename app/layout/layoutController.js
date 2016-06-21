@@ -25,8 +25,8 @@
 			vm.navigation = navigationService.navigation;
 
 			facebookService.init()
-				//.then(getLoginStatus)
-				//.catch(isUnauthorized)
+				.then(getLoginStatus)
+				.catch(isUnauthorized)
 				.finally(hideLoading);
 		}
 

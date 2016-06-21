@@ -11,6 +11,7 @@
 			init: init,
 			getLoginStatus: getLoginStatus,
 			login: login,
+			userInfo: userInfo,
 			logout: logout
 		};
 
@@ -34,8 +35,8 @@
 		function getLoginStatus() {
 			var defer = $q.defer();
 
-			api('getLoginStatus')
-				.then(function(response){
+			method('getLoginStatus')
+				.then(function (response) {
 					if (response.status === 'connected') {
 						defer.resolve();
 					}
@@ -58,14 +59,33 @@
 			return deferred.promise;
 		}
 
-		function logout() {
-			return api('logout');
+		function userInfo() {
+			var params = {fields: "id,name,first_name,gender,last_name,link,locale,relationship_status,timezone"};
+			return api('/me', params);
 		}
 
-		function api(functionName) {
+		function logout() {
+			return method('logout');
+		}
+
+		function method(functionName) {
 			var defer = $q.defer();
 
 			facebook[functionName](function (response) {
+				defer.resolve(response);
+			});
+
+			setTimeout(defer.reject, config.REQUEST_TIMEOUT);
+
+			return defer.promise;
+		}
+
+		function api(api, params) {
+			var defer = $q.defer();
+
+			params = params || {};
+
+			facebook.api(api, params, function (response) {
 				defer.resolve(response);
 			});
 

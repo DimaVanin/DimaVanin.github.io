@@ -51,7 +51,7 @@
 		};
 
 		function updateUserSref(user) {
-			navigation.user.sref = stateConfig.USER + '/:' + user;
+			navigation.user.sref = stateConfig.USER + '.' + user;
 		}
 
 		function resetUserSref() {

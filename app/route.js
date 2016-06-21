@@ -13,7 +13,14 @@
 				})
 				.state(stateConfig.USER, {
 					url: "/user",
-					template: "<div>user</div>"
+					templateUrl: './app/user/userTpl.html',
+					controller: 'userController',
+					controllerAs: 'userCtrl',
+					resolve: {
+						user: ['facebookService',function (facebookService) {
+							return facebookService.userInfo()
+						}]
+					}
 				})
 				.state(stateConfig.EVENT, {
 					url: "/event",
