@@ -26,8 +26,13 @@
 
 			facebookService.init()
 				.then(getLoginStatus)
+				.then(isAuthorized)
 				.catch(isUnauthorized)
 				.finally(hideLoading);
+		}
+
+		function isAuthorized(){
+			$state.go(stateConfig.USER);
 		}
 
 		function isUnauthorized() {
