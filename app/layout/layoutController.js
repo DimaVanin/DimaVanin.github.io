@@ -3,61 +3,37 @@
 
 	angular
 		.module('app')
-		.controller('layoutController', ['$state', '_', 'stateConfig', 'facebookService', 'navigationService', layoutController]);
+		.controller('layoutController', ['$scope', layoutController]);
 
-	function layoutController($state, _, stateConfig, facebookService, navigationService) {
+	function layoutController($scope) {
 		var vm = this;
+		vm.width = '0%';
+		vm.widthE = 0;
 
-		/*scope variables*/
-		vm.navigation = [];
+		$scope.safeApply = function(fn) {
+			var phase = this.$root.$$phase;
+			if(phase == '$apply' || phase == '$digest') {
+				if(fn && (typeof(fn) === 'function')) {
+					fn();
+				}
+			} else {
+				this.$apply(fn);
+			}
+		};
 
-		vm.loaded = false;
-		vm.isSigned = true;
+		function incr(){
+			setTimeout(function(){
+					vm.widthE += 5;
 
-		/*functions*/
-		vm.processClass = processClass;
-		vm.hideNav = hideNav;
+				$scope.safeApply(function() {
+					vm.width = vm.widthE + '%';
+				});
 
-		init();
-
-		function init() {
-			//TODO: remove to service with dynamic sref(for video & event)
-			vm.navigation = navigationService.navigation;
-
-			facebookService.init()
-				.then(getLoginStatus)
-				.then(isAuthorized)
-				.catch(isUnauthorized)
-				.finally(hideLoading);
+				console.log(vm.width);
+				incr()
+			}, 1000)
 		}
 
-		function isAuthorized(){
-			$state.go(stateConfig.USER);
-		}
-
-		function isUnauthorized() {
-			$state.go(stateConfig.LOGIN);
-		}
-
-		function getLoginStatus() {
-			return facebookService.getLoginStatus()
-				.then(function (response) {
-					console.log(response);
-				})
-		}
-
-		function processClass(name) {
-			return name === $state.current.name;
-		}
-
-		function hideNav() {
-			//return false;
-			var state = $state.current.name;
-			return state === 'login' || state === 'logout';
-		}
-
-		function hideLoading() {
-			vm.loaded = true;
-		}
+		incr();
 	}
 })();

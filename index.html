@@ -25,34 +25,30 @@
 	</style>
 
 </head>
-<body data-ng-controller="layoutController as layoutCtrl"
-			data-ng-class="{'loaded': layoutCtrl.loaded}">
+<body data-ng-controller="layoutController as layoutCtrl">
 
-<div class="loader">
-	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-</div>
 
-<div class="main-container">
-	<header data-ng-if="!layoutCtrl.hideNav()">
-		<div class="logo">
-			<img src="content/monterosa_logo.png">
+<div class="wrapper">
+	<div class="scrollable">
+		<div class="container-fluid" id="app">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="panel">
+						<div class="panel-body" id="main">
+							<div class="content">
+								<div class="remaining"><div class="remaining-bar-line"><div class="progress-bar-line">
+									<div class="bar" style="width: {{layoutCtrl.width}}">
+
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<nav>
-			<ul>
-				<li data-ng-repeat="link in layoutCtrl.navigation">
-					<a title="{{link.title}}"
-						 data-ui-sref="{{link.sref}}"
-						 data-ng-class="{'active': layoutCtrl.processClass(link.sref)}">
-						<i class="fa fa-{{link.fontClass}}" aria-hidden="true"></i>
-					</a>
-				</li>
-			</ul>
-		</nav>
-	</header>
-
-	<section>
-		<div ui-view></div>
-	</section>
+	</div>
 </div>
 
 </body>
