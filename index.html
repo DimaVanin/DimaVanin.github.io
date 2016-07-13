@@ -1,108 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>FB Api Demo</title>
+	<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 
-	<!-- hot css for loading-->
-	<style>
-		body:not(.loaded) .loader {
-			z-index: 2;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			background: #ccc;
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
-			display: flex;
-			align-items: center;
-			justify-content: space-around;
-			font-size: 2em;
-			color: #ab113d;
-		}
-	</style>
-
+	<title>Test page with iframe</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body data-ng-controller="layoutController as layoutCtrl">
+<body>
 
+<div class="frame-wrapper">
+	<iframe align="middle"
+					frameborder="0"
+					height="520"
+					width="100%"
+					src="https://apps.lvis.tv/foundation-v16/latest/app.html?h=d2vco027r8jg2s.cloudfront.net&p=52d8d8df-4a1b-4344-9615-e14ef46f1256"></iframe>
+</div>
 
-<div class="wrapper">
-	<div class="scrollable">
-		<div class="container-fluid" id="app">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="panel">
-						<div class="panel-body" id="main">
-							<div class="view-voteable view-quiz view-trivia-on-demand element-1239">
-								<div class="header">
-									<div class="element-header-layout">
-										<div class="row element-header is-timed">
-											<div class="col-xs-12">
-												<h2>question 1 3</h2>
-											</div>
-											<div class="col-xs-12">
-												<div class="content">
-													<div class="remaining">
-														<div class="remaining-bar-line">
-															<div class="progress-bar-line">
-																<div class="bar" style="width: {{layoutCtrl.width}}">
-
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 </body>
-<!-- js libs -->
-<script type="text/javascript" src="libs/angular.min.js"></script>
-<script type="text/javascript" src="libs/angular-ui-router.min.js"></script>
-<script src="//connect.facebook.net/en_US/sdk.js"></script>
-<script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
-<!--<script src="libs/moment.min.js"></script>-->
-
-<!-- script -->
-<script type="text/javascript" src="app/app.js"></script>
-
-<!-- config -->
-<script type="text/javascript" src="app/config/appConfig.js"></script>
-<script type="text/javascript" src="app/config/stateConfig.js"></script>
-
-<!-- routing -->
-<script type="text/javascript" src="app/route.js"></script>
-
-<!-- controllers -->
-<script type="text/javascript" src="app/layout/layoutController.js"></script>
-<script type="text/javascript" src="app/login/loginController.js"></script>
-<script type="text/javascript" src="app/logout/logoutController.js"></script>
-<script type="text/javascript" src="app/user/userController.js"></script>
-
-<!-- services -->
-<script type="text/javascript" src="app/services/facebookService.js"></script>
-<script type="text/javascript" src="app/services/navigationService.js"></script>
-
-
-<!-- css -->
-<link rel="stylesheet" href="styles/reset.css">
-<link rel="stylesheet" href="styles/layout.css">
-<link rel="stylesheet" href="styles/login.css">
-<link rel="stylesheet" href="styles/header.css">
-<link rel="stylesheet" href="styles/buttons.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
+<script type="text/javascript" src="script.js"></script>
 </html>

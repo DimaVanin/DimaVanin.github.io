@@ -1,0 +1,15 @@
+.frame-wrapper iframe{
+  display: block;
+  margin: 25px auto;
+  max-width: 520px;
+  min-width: 280px;
+}
+
+.frame-wrapper {
+  padding: 0 20px;
+
+}
+
+body {
+  background: #c7fad6;
+}
