@@ -14,6 +14,8 @@ body {
   display: block;
   overflow-y: scroll;
   background: #b5f7fa;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 .scrollable {
