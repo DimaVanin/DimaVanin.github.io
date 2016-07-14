@@ -43,7 +43,7 @@ table {
 }
 
 * {
-  box-sizing: border-box;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  /*box-sizing: border-box;*/
+  /*-webkit-backface-visibility: hidden;*/
+  /*backface-visibility: hidden;*/
 }
