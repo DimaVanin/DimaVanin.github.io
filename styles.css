@@ -2,20 +2,21 @@
 
 body {
   background: #c7fad6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  /*touch-action: ;*/
 }
 
 .wrapper {
-  position: absolute;
-  top: 25px;
-  left: 15px;
-  right: 15px;
-  bottom: 25px;
-
   display: block;
-  overflow-y: scroll;
   background: #b5f7fa;
 
-  -webkit-overflow-scrolling: touch;
 }
 
 .scrollable {
