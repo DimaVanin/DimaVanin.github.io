@@ -14,8 +14,7 @@ body {
   display: block;
   overflow-y: scroll;
   background: #b5f7fa;
-  -webkit-perspective: 1000px;
-  -webkit-backface-visibility: hidden;
+
   -webkit-overflow-scrolling: touch;
 }
 
@@ -40,10 +39,6 @@ body {
   background: #000000;
   width: 0%;
   height: 100%;
-
-  -webkit-perspective: 1000px;
-  -webkit-backface-visibility: hidden;
-  -webkit-overflow-scrolling: touch;
 
   -moz-transition: width 1s linear;
   -o-transition: width 1s linear;
