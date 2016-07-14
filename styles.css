@@ -41,6 +41,10 @@ body {
   width: 0%;
   height: 100%;
 
+  -webkit-perspective: 1000px;
+  -webkit-backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+
   -moz-transition: width 1s linear;
   -o-transition: width 1s linear;
   -webkit-transition: width 1s linear;
