@@ -14,7 +14,8 @@ body {
   display: block;
   overflow-y: scroll;
   background: #b5f7fa;
-
+  -webkit-perspective: 1000px;
+  -webkit-backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
