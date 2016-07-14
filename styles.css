@@ -1,4 +1,6 @@
-
+*:not(html) {
+  -webkit-transform: translate3d(0, 0, 0);
+}
 
 body {
   background: #c7fad6;
