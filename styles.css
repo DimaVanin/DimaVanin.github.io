@@ -19,10 +19,8 @@ body {
 .frame-wrapper iframe {
   display: block;
   margin: 0 auto;
-  height: 100%;
+  height: calc(100% + 1px);
   width: 100%;
-  /*max-width: 520px;*/
-  /*min-width: 280px;*/
 }
 
 .wrapper {
