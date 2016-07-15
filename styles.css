@@ -51,11 +51,12 @@ body {
 .frame-wrapper {
   -webkit-overflow-scrolling: touch;
   padding: 0 20px;
+  height: 520px;
 }
 
 .frame-wrapper iframe {
   display: block;
-  margin: 20px auto;
+  margin: 0 auto;
   max-width: 520px;
   min-width: 280px;
 }
