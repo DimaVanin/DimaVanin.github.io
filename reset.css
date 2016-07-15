@@ -41,9 +41,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-* {
-  /*box-sizing: border-box;*/
-  /*-webkit-backface-visibility: hidden;*/
-  /*backface-visibility: hidden;*/
-}
