@@ -7,10 +7,27 @@ body {
 
 }
 
+.frame-wrapper {
+  margin: 0 20px;
+  /*padding: 0 20px;*/
+  height: 520px;
+
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.frame-wrapper iframe {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  /*max-width: 520px;*/
+  /*min-width: 280px;*/
+}
+
 .wrapper {
   display: block;
   background: #b5f7fa;
-
   position: absolute;
   top: 0;
   left: 0;
@@ -47,20 +64,6 @@ body {
   -o-transition: width 1s linear;
   -webkit-transition: width 1s linear;
   transition: width 1s linear;
-}
-.frame-wrapper {
-  padding: 0 20px;
-  height: 520px;
-
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-
-.frame-wrapper iframe {
-  display: block;
-  margin: 0 auto;
-  max-width: 520px;
-  min-width: 280px;
 }
 
 .buttons-block {
