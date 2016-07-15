@@ -1,11 +1,11 @@
 $(function () {
-	var iframeW = $('#iframe-wrapper');
+	var iframe = $('#iframe');
 
 	$('#btn-inc').on('click', function () {
-		iframeW.height(1.1 * iframeW.height());
+		iframe.height(1.1 * iframe.height());
 	});
 
 	$('#btn-dec').on('click', function () {
-		iframeW.height(.9 * iframeW.height());
+		iframe.height(.9 * iframe.height());
 	});
 });
