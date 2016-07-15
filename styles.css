@@ -49,9 +49,11 @@ body {
   transition: width 1s linear;
 }
 .frame-wrapper {
-  -webkit-overflow-scrolling: touch;
   padding: 0 20px;
   height: 520px;
+
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .frame-wrapper iframe {
