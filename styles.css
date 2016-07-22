@@ -23,6 +23,7 @@ label {
   border: 1px solid #666;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+
 }
 
 .scrollable-content {
@@ -38,6 +39,9 @@ label {
 
 .animation {
   height: 25px;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .dynamic-width {
@@ -47,6 +51,9 @@ label {
   animation-name: dynamicWidth;
   animation-duration: 5s;
   animation-iteration-count: infinite;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 @keyframes dynamicWidth {
