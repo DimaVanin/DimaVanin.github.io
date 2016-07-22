@@ -1,20 +1,56 @@
 
 body {
   background: #c7fad6;
-
-}
-
-.main-container {
-  padding: 50px 20px;
-}
-
-.frame-wrapper {
-
-}
-
-.frame-wrapper iframe {
-  display: block;
-  margin: 0 auto;
+  height: 100%;
   width: 100%;
+  color: #666;
 }
 
+label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.scroll-wrapper {
+  height: auto;
+  position: absolute;
+  top: 100px;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  border: 1px solid #666;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrollable-content {
+  background: #80fa8d;
+
+  position: relative;
+  min-height: calc(100% + 1px);
+  padding: 15px;
+}
+.line-with-animation {
+  margin: 75px 0;
+}
+
+.animation {
+  height: 25px;
+}
+
+.dynamic-width {
+  width: 100%;
+  height: 100%;
+  background: #666;
+  animation-name: dynamicWidth;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes dynamicWidth {
+  0% {width: 100%;}
+  50% {width: 0;}
+  100% {width: 100%;}
+}

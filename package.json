@@ -1,16 +1,6 @@
 {
-  "name": "DVMonterosa",
+  "name": "scrollIosShaking",
   "version": "0.0.1",
-  "description": "monterosa facebook demo",
-  "repository": "https://github.com/DVMonterosa/DVMonterosa.github.io",
-  "license": "",
-  "scripts": {
-
-  },
-  "dependencies": {
-
-  },
-  "devDependencies": {
-
-  }
+  "description": "shake shake",
+  "repository": "https://github.com/dimavanin/dimavanin.github.io"
 }
