@@ -31,12 +31,11 @@ label {
   position: relative;
   min-height: calc(100% + 1px);
   padding: 15px;
-
-  -webkit-transform: translateZ(0);
 }
 
 .line-with-animation {
   margin: 75px 0;
+  -webkit-transform: translateZ(0);
 }
 
 .animation {
