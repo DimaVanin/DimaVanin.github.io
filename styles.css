@@ -35,7 +35,6 @@ label {
 
 .line-with-animation {
   margin: 75px 0;
-  -webkit-transform: translateZ(0);
 }
 
 .animation {
@@ -43,6 +42,8 @@ label {
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+
+  -webkit-transform: translateZ(0);
 }
 
 .dynamic-width {
