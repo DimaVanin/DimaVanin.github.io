@@ -43,7 +43,6 @@ label {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 
-  -webkit-transform: translateZ(0);
 }
 
 .dynamic-width {
@@ -53,6 +52,8 @@ label {
   animation-name: dynamicWidth;
   animation-duration: 5s;
   animation-iteration-count: infinite;
+
+  -webkit-transform: translateZ(0);
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
