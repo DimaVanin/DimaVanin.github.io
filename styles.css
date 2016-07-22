@@ -23,7 +23,6 @@ label {
   border: 1px solid #666;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  -webkit-transform: translateZ(0);
 }
 
 .scrollable-content {
@@ -32,7 +31,10 @@ label {
   position: relative;
   min-height: calc(100% + 1px);
   padding: 15px;
+
+  -webkit-transform: translateZ(0);
 }
+
 .line-with-animation {
   margin: 75px 0;
 }
