@@ -23,7 +23,7 @@ label {
   border: 1px solid #666;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-
+  -webkit-transform: translateZ(0);
 }
 
 .scrollable-content {
