@@ -2,5 +2,10 @@
   "name": "scrollIosShaking",
   "version": "0.0.1",
   "description": "shake shake",
-  "repository": "https://github.com/dimavanin/dimavanin.github.io"
+  "repository": "https://github.com/dimavanin/dimavanin.github.io",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "jimp": "^0.2.28",
+    "redis": "^2.8.0"
+  }
 }
